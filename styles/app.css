@@ -3322,6 +3322,9 @@ header {
 .top-bar .utilities a {
   color: #4f5a5f;
 }
+.top-bar .utilities a:hover, .top-bar .utilities a:focus {
+  color: #4f5a5f;
+}
 .top-bar .account {
   border-left: 1px solid #00749c;
   float: right;
@@ -3353,14 +3356,27 @@ header {
   text-align: center;
   width: 70px;
 }
+.top-bar .account .icon > a:hover, .top-bar .account .icon > a:focus {
+  background-color: #8b8f98;
+  color: #575a60;
+  -webkit-transition: all, 0.5s;
+  -khtml-transition: all, 0.5s;
+  -moz-transition: all, 0.5s;
+  -ms-transition: all, 0.5s;
+  -o-transition: all, 0.5s;
+  transition: all, 0.5s;
+}
 
 .app-bar {
-  background-color: #12759f;
+  background-color: #00749c;
   height: 50px;
   line-height: 50px;
   padding: 0 30px;
 }
 .app-bar a {
+  color: #fff;
+}
+.app-bar a:hover, .app-bar a:focus {
   color: #fff;
 }
 
