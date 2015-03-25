@@ -77,24 +77,21 @@ header {
       text-transform: uppercase;
     }
 
-    .icon {
+    .icon > a {
+      background-color: $account-background-color;
+      color: $account-anchor-color;
+      display: block;
+      font-size: 36px;
+      height: $top-bar-height;
+      line-height: $top-bar-height;
+      text-align: center;
+      width: 70px;
 
-      > a {
-        background-color: $account-background-color;
-        color: $account-anchor-color;
-        display: block;
-        font-size: 36px;
-        height: $top-bar-height;
-        line-height: $top-bar-height;
-        text-align: center;
-        width: 70px;
-
-        &:hover,
-        &:focus {
-          background-color: $account-hover-background-color;
-          color: $account-anchor-hover-color;
-          @include transition(all, 0.5s);
-        }
+      &:hover,
+      &:focus {
+        background-color: $account-hover-background-color;
+        color: $account-anchor-hover-color;
+        @include transition(all, 0.5s);
       }
     }
   }

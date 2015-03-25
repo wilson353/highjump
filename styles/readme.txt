@@ -10,6 +10,7 @@
             _css3.scss                  # CSS3 mixins
         _variables.scss                 # Variables
         _variables-bootstrap.scss       # Overwriting Bootstrap variables
+        _variables-colors.scss          # Color variables used for theming
     /vendors
         /bootstrap
             [..]                        # Bootstrap source files (Unmodified)

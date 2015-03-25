@@ -3306,7 +3306,7 @@ header {
 }
 .top-bar .brand {
   background: #fff;
-  border-right: 1px solid #00749c;
+  border-right: 1px solid #cecfce;
   float: left;
 }
 .top-bar .brand a {
@@ -3326,7 +3326,7 @@ header {
   color: #4f5a5f;
 }
 .top-bar .account {
-  border-left: 1px solid #00749c;
+  border-left: 1px solid #cecfce;
   float: right;
   padding-left: 30px;
 }
@@ -3408,7 +3408,7 @@ header {
 }
 
 .quick-nav {
-  background-color: #000;
+  background-color: #262d30;
   height: 100%;
   position: relative;
   width: 70px;
@@ -3418,7 +3418,7 @@ header {
   text-align: center;
 }
 .quick-nav li a {
-  color: #fff;
+  color: #59686f;
   display: block;
   font-size: 32px;
   padding: 15px 0;
@@ -3435,24 +3435,36 @@ header {
 }
 
 .push-nav {
-  background-color: #2c2c2c;
+  background-color: #30383d;
   font-size: 18px;
+  width: 300px;
   height: 100%;
-  left: -230px;
   position: absolute;
   top: 0;
-  width: 300px;
+  left: -230px;
   z-index: 1;
 }
-.push-nav .title {
+.push-nav li {
+  border-bottom: 1px solid #908f8f;
+  font-size: 18px;
+}
+.push-nav li.current {
+  background-color: #79d0e9;
   border-bottom: 1px solid #908f8f;
   color: #fff;
   padding: 24px 22px;
   text-transform: uppercase;
 }
-.push-nav li {
-  border-bottom: 1px solid #908f8f;
-  font-size: 18px;
+.push-nav li.with-children {
+  position: relative;
+}
+.push-nav li.with-children:before {
+  color: #fff;
+  font-family: FontAwesome;
+  position: absolute;
+  top: 26px;
+  right: 22px;
+  content: "\f105";
 }
 .push-nav a {
   color: #fff;
@@ -3462,6 +3474,7 @@ header {
 }
 .push-nav a:hover, .push-nav a:focus {
   background-color: #1f1f1f;
+  text-decoration: none;
   -webkit-transition: all, 0.25s;
   -khtml-transition: all, 0.25s;
   -moz-transition: all, 0.25s;
@@ -3469,36 +3482,22 @@ header {
   -o-transition: all, 0.25s;
   transition: all, 0.25s;
 }
-.push-nav a .fa {
-  float: right;
-}
 
 .push-nav,
 .page-wrap {
-  -webkit-transition: all, 0.5s;
-  -khtml-transition: all, 0.5s;
-  -moz-transition: all, 0.5s;
-  -ms-transition: all, 0.5s;
-  -o-transition: all, 0.5s;
-  transition: all, 0.5s;
+  -webkit-transition: left, 0.5s;
+  -khtml-transition: left, 0.5s;
+  -moz-transition: left, 0.5s;
+  -ms-transition: left, 0.5s;
+  -o-transition: left, 0.5s;
+  transition: left, 0.5s;
 }
 
-.push-menu-open .push-nav.active {
+.push-nav-open .push-nav.open {
   left: 70px;
 }
-.push-menu-open .page-wrap {
+.push-nav-open .page-wrap {
   left: 300px;
-}
-
-.dropdown-toggle:focus {
-  outline: 0;
-}
-
-.dropdown-menu {
-  display: none;
-}
-.dropdown-menu.open {
-  display: block;
 }
 
 .page-title {

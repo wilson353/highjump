@@ -26,7 +26,7 @@ $gray-lighter:                      lighten($gray-base, 93.5%); // #eee
 // Header
 // -------------------------
 $top-bar-background-color:          #f1f3f2;
-$top-bar-border-color:              $highjump-medium-color;
+$top-bar-border-color:              #cecfce;
 
 $utilities-anchor-color:            #4f5a5f;
 $utilities-anchor-hover-color:      #4f5a5f;
@@ -42,6 +42,9 @@ $app-bar-anchor-hover-color:        #fff;
 
 // Nav
 // -------------------------
-$quick-nav-background-color:        #000;
-$quick-nav-anchor-color:            #fff;
+$quick-nav-background-color:        #262d30;
+$quick-nav-anchor-color:            #59686f;
 $quick-nav-anchor-hover-color:      $highjump-light-color;
+
+$push-nav-background-color:         #30383d;
+$push-nav-current-background-color: $highjump-light-color;

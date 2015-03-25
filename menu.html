@@ -48,14 +48,8 @@
                     </ul>
                 </nav>
                 <nav id="menu" class="push-nav">
-                    <ul>
+                    <ul class="stacked">
                         <li class="current">Menu</li>
-                        <li class="with-children"><a href="#">Item 1</a></li>
-                        <li class="with-children"><a href="#">Item 2</a></li>
-                        <li class="with-children"><a href="#">Item 3</a></li>
-                        <li class="with-children"><a href="#">Item 4</a></li>
-                        <li class="with-children"><a href="#">Item 5</a></li>
-                        <li class="with-children"><a href="#">Item 6</a></li>
                     </ul>
                 </nav>
                 <nav id="threads" class="push-nav">
@@ -80,65 +74,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="page-title">Dashboard</h1>
-                            <ul class="tiles">
-                                <li>
-                                    <a href="#">
-                                        <span>
-                                            <img class="logo" src="http://placehold.it/85x85">
-                                            <span class="title">App Title</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span>
-                                            <img class="logo" src="http://placehold.it/85x85">
-                                            <span class="title">This is a longer App Title</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span>
-                                            <img class="logo" src="http://placehold.it/85x85">
-                                            <span class="title">This is a longer App Title which falls onto the second line</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span>
-                                            <img class="logo" src="http://placehold.it/85x85">
-                                            <span class="title">App Title</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span>
-                                            <img class="logo" src="http://placehold.it/85x85">
-                                            <span class="title">App Title</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span>
-                                            <img class="logo" src="http://placehold.it/85x85">
-                                            <span class="title">App Title</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span>
-                                            <img class="logo" src="http://placehold.it/85x85">
-                                            <span class="title">App Title</span>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
+                            <div style="background: #ccc; border: 1px solid #aaa; width: 100%; height: 500px;"></div>
                         </div>
                     </div>
                 </div>
@@ -147,5 +83,83 @@
 
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" src="scripts/app.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var menu = [
+                    {
+                        "title": "item 1",
+                        "link": "#",
+                        "nav": [
+                            {
+                                "title": "item 1.1",
+                                "link": "#"
+                            },
+                            {
+                                "title": "item 1.2",
+                                "link": "#"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "item 2",
+                        "link": "#",
+                        "nav": [
+                            {
+                                "title": "item 1.1",
+                                "link": "#"
+                            },
+                            {
+                                "title": "item 1.2",
+                                "link": "#"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "item 3",
+                        "link": "#",
+                        "nav": [
+                            {
+                                "title": "item 1.1",
+                                "link": "#"
+                            },
+                            {
+                                "title": "item 1.2",
+                                "link": "#"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "item 4",
+                        "link": "#"
+                    },
+                    {
+                        "title": "item 5",
+                        "link": "#",
+                        "nav": [
+                            {
+                                "title": "item 1.1",
+                                "link": "#"
+                            },
+                            {
+                                "title": "item 1.2",
+                                "link": "#"
+                            }
+                        ]
+                    }
+                ];
+                var threads = {  };
+                var favorties = {  };
+
+                for (var i = 0; i < menu.length; i++) {
+                    var item = menu[i];
+                    var cssClass = item.nav != undefined ? "with-children" : "without-children";
+                    $("#menu ul").append("<li class='" + cssClass + "'><a href='" + item.link + "'>" + item.title + "</a></li>")
+                }
+
+                $(".stacked .with-children").click(function() {
+                    $(this).siblings(":not(.current)").remove();
+                });
+            });
+        </script>
     </body>
 </html>

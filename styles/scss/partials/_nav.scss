@@ -2,7 +2,7 @@
 // Navigation
 // --------------------------------------------------
 
-// Fixed left nav
+// Fixed nav wrapper
 // -------------------------
 .nav-wrap {
   height: 100%;
@@ -67,26 +67,42 @@
   }
 }
 
+// Push nav
+// -------------------------
 .push-nav {
-  background-color: #2c2c2c;
+  background-color: $push-nav-background-color;
   font-size: 18px;
+  width: $nav-large-width;
   height: 100%;
-  left: (($nav-large-width - $quick-nav-width) * -1);
   position: absolute;
   top: 0;
-  width: $nav-large-width;
+  left: (($nav-large-width - $quick-nav-width) * -1); // Offset by the width of the quick nav and large nav combined
   z-index: 1; // Must have a lower z-index than .quick-nav
-
-  .title {
-    border-bottom: 1px solid #908f8f;
-    color: #fff;
-    padding: 24px 22px;
-    text-transform: uppercase;
-  }
 
   li {
     border-bottom: 1px solid #908f8f;
     font-size: 18px;
+
+    &.current {
+      background-color: $push-nav-current-background-color;
+      border-bottom: 1px solid #908f8f;
+      color: #fff;
+      padding: 24px 22px;
+      text-transform: uppercase;
+    }
+
+    &.with-children {
+      position: relative;
+
+      &:before {
+        color: #fff;
+        font-family: FontAwesome;
+        position: absolute;
+        top: 26px;
+        right: 22px;
+        content: "\f105";
+      }
+    }
   }
 
   a {
@@ -98,26 +114,19 @@
     &:hover,
     &:focus {
       background-color: #1f1f1f;
+      text-decoration: none;
       @include transition(all, 0.25s);
     }
-
-    .fa {
-      float: right;
-    }
   }
 }
 
+// Animations
 .push-nav,
 .page-wrap {
-  @include transition(all, 0.5s);
+  @include transition(left, 0.5s);
 }
 
-.push-menu-open {
-  .push-nav.active {
-    left: $quick-nav-width;
-  }
-
-  .page-wrap {
-    left: $nav-large-width;
-  }
+.push-nav-open {
+  .push-nav.open  { left: $quick-nav-width; }
+  .page-wrap      { left: $nav-large-width; }
 }

@@ -11,55 +11,71 @@
         <link rel="stylesheet" type="text/css" href="styles/app.css">
     </head>
     <body>
-        <header>
-            <div class="top-bar">
-                <div class="brand">
-                    <a href="index.html">Highjump</a>
-                </div>
-                <div class="utilities">
-                    <ul class="icon-list icon-list-horizontal">
-                        <li><a href="#"><i class="fa fa-bell-o"></i></a></li>
-                        <li><a href="#"><i class="fa fa-question"></i></a></li>
-                        <li class="last"><a href="#"><i class="fa fa-cog"></i></a></li>
-                    </ul>
-                </div>
+    <header>
+        <div class="top-bar">
+            <div class="brand">
+                <a href="index.html"><img src="images/logo.png" alt="Highjump"></a>
             </div>
-            <div class="app-bar">
-                <div class="float-right">
-                    <ul class="icon-list icon-list-horizontal">
-                        <li><a href="#"><i class="fa fa-refresh"></i></a></li>
-                        <li class="last"><a href="#"><i class="fa fa-search"></i></a></li>
-                    </ul>
-                </div>
+            <div class="account">
+                <ul>
+                    <li class="name">John Smith</li>
+                    <li class="icon dropdown"><a href="#"><i class="fa fa-user"></i></a></li>
+                </ul>
             </div>
-        </header>
-        <div class="page-wrap">
-            <div class="nav-wrap">
-                <nav class="quick-nav">
-                    <ul>
-                        <li><a href="#" class="push-menu-toggle" data-target="#menu"><i class="fa fa-bars"></i></a></li>
-                        <li><a href="#" class="push-menu-toggle" data-target="#threads"><i class="fa fa-th saved"></i></a></li>
-                        <li><a href="#" class="push-menu-toggle" data-target="#favorites"><i class="fa fa-star-o"></i></a></li>
-                    </ul>
-                </nav>
-                <nav id="menu" class="push-nav">
-                    <ul>
-                        <li><a href="#" class="with-children">Item 1<i class="fa fa-angle-right"></i></a></li>
-                        <li><a href="#" class="with-children">Item 2<i class="fa fa-angle-right"></i></a></li>
-                        <li><a href="#">Item 3</a></li>
-                        <li><a href="#" class="with-children">Item 4<i class="fa fa-angle-right"></i></a></li>
-                        <li><a href="#">Item 5</a></li>
-                        <li><a href="#" class="with-children">Item 6<i class="fa fa-angle-right"></i></a></li>
-                    </ul>
-                </nav>
-                <nav id="favorites" class="push-nav">
-                    <ul>
-                        <li><a href="#">Favorite 1</a></li>
-                        <li><a href="#">Favorite 2</a></li>
-                        <li><a href="#">Favorite 3</a></li>
-                    </ul>
-                </nav>
+            <div class="utilities">
+                <ul class="icon-list icon-list-horizontal">
+                    <li><a href="#"><i class="fa fa-bell-o"></i></a></li>
+                    <li class="last"><a href="#"><i class="fa fa-question"></i></a></li>
+                </ul>
             </div>
+        </div>
+        <div class="app-bar">
+            <div class="float-right">
+                <ul class="icon-list icon-list-horizontal">
+                    <li><a href="#"><i class="fa fa-refresh"></i></a></li>
+                    <li class="last"><a href="#"><i class="fa fa fa-star-o"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="page-wrap">
+        <div class="nav-wrap">
+            <nav id="quick" class="quick-nav">
+                <ul>
+                    <li><a href="#" class="push-nav-toggle" data-target="#menu"><i class="fa fa-bars"></i></a></li>
+                    <li><a href="#" class="push-nav-toggle" data-target="#threads"><i class="fa fa-th saved"></i></a></li>
+                    <li><a href="#" class="push-nav-toggle" data-target="#favorites"><i class="fa fa-star-o"></i></a></li>
+                </ul>
+            </nav>
+            <nav id="menu" class="push-nav">
+                <ul>
+                    <li class="current">Menu</li>
+                    <li class="with-children"><a href="#">Item 1</a></li>
+                    <li class="with-children"><a href="#">Item 2</a></li>
+                    <li class="with-children"><a href="#">Item 3</a></li>
+                    <li class="with-children"><a href="#">Item 4</a></li>
+                    <li class="with-children"><a href="#">Item 5</a></li>
+                    <li class="with-children"><a href="#">Item 6</a></li>
+                </ul>
+            </nav>
+            <nav id="threads" class="push-nav">
+                <ul>
+                    <li class="current">Open Threads</li>
+                    <li><a href="#">Thread 1</a></li>
+                    <li><a href="#">Thread 2</a></li>
+                    <li><a href="#">Thread 3</a></li>
+                    <li><a href="#">Thread 4</a></li>
+                </ul>
+            </nav>
+            <nav id="favorites" class="push-nav">
+                <ul>
+                    <li class="current">Favorites</li>
+                    <li><a href="#">Favorite 1</a></li>
+                    <li><a href="#">Favorite 2</a></li>
+                    <li><a href="#">Favorite 3</a></li>
+                </ul>
+            </nav>
+        </div>
 
             <div class="content-wrap">
                 <div class="container-fluid">
