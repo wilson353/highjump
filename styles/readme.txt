@@ -1,4 +1,6 @@
 /scss
+    /pages
+        _home.scss                      # Homepage specific
     /patrials
         _footer.scss                    # Footer
         _header.scss                    # Header
