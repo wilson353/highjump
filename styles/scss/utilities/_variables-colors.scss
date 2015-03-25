@@ -3,36 +3,45 @@
 // --------------------------------------------------
 
 // Primary colors
-$highjump-very-light-color:       rgba( 177, 227, 249, 1);
-$highjump-light-color:            rgba(121, 208, 233, 1);
-$highjump-medium-color:           rgba(0, 116, 156, 1);
-$highjump-dark-color:             rgba(2, 73, 95, 1);
-$highjump-very-dark-color:        rgba(11, 41, 49, 1);
+// -------------------------
+$highjump-very-light-color:         rgba( 177, 227, 249, 1);
+$highjump-light-color:              rgba(121, 208, 233, 1);
+$highjump-medium-color:             rgba(0, 116, 156, 1);
+$highjump-dark-color:               rgba(2, 73, 95, 1);
+$highjump-very-dark-color:          rgba(11, 41, 49, 1);
 
-// Grey scale
-$gray-base:                       #000;
-$gray-darker:                     lighten($gray-base, 13.5%); // #222
-$gray-dark:                       lighten($gray-base, 20.0%); // #333
-$gray:                            lighten($gray-base, 33.5%); // #555
-$gray-light:                      lighten($gray-base, 46.7%); // #777
-$gray-lighter:                    lighten($gray-base, 93.5%); // #eee
+// Gray scale
+// -------------------------
+$gray-base:                         #000;
+$gray-darker:                       lighten($gray-base, 13.5%); // #222
+$gray-dark:                         lighten($gray-base, 20.0%); // #333
+$gray:                              lighten($gray-base, 33.5%); // #555
+$gray-light:                        lighten($gray-base, 46.7%); // #777
+$gray-lighter:                      lighten($gray-base, 93.5%); // #eee
 
 //
 // Colors assigned to elements
 // --------------------------------------------------
 
 // Header
-$top-bar-background-color:        #f1f3f2;
-$top-bar-border-color:            $highjump-medium-color;
+// -------------------------
+$top-bar-background-color:          #f1f3f2;
+$top-bar-border-color:              $highjump-medium-color;
 
-$utilities-anchor-color:          #4f5a5f;
-$utilities-anchor-hover-color:    #4f5a5f;
+$utilities-anchor-color:            #4f5a5f;
+$utilities-anchor-hover-color:      #4f5a5f;
 
-$account-background-color:        #575a60;
-$account-hover-background-color:  #8b8f98;
-$account-anchor-color:            #8b8f98;
-$account-anchor-hover-color:      #575a60;
+$account-background-color:          #575a60;
+$account-hover-background-color:    #8b8f98;
+$account-anchor-color:              #8b8f98;
+$account-anchor-hover-color:        #575a60;
 
-$app-bar-background-color:        $highjump-medium-color;
-$app-bar-anchor-color:            #fff;
-$app-bar-anchor-hover-color:      #fff;
+$app-bar-background-color:          $highjump-medium-color;
+$app-bar-anchor-color:              #fff;
+$app-bar-anchor-hover-color:        #fff;
+
+// Nav
+// -------------------------
+$quick-nav-background-color:        #000;
+$quick-nav-anchor-color:            #fff;
+$quick-nav-anchor-hover-color:      $highjump-light-color;

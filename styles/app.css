@@ -3425,13 +3425,13 @@ header {
   text-align: center;
 }
 .quick-nav li a:hover, .quick-nav li a.active {
-  background-color: #202020;
-  -webkit-transition: all, 0.25s;
-  -khtml-transition: all, 0.25s;
-  -moz-transition: all, 0.25s;
-  -ms-transition: all, 0.25s;
-  -o-transition: all, 0.25s;
-  transition: all, 0.25s;
+  color: #79d0e9;
+  -webkit-transition: all, 0.5s;
+  -khtml-transition: all, 0.5s;
+  -moz-transition: all, 0.5s;
+  -ms-transition: all, 0.5s;
+  -o-transition: all, 0.5s;
+  transition: all, 0.5s;
 }
 
 .push-nav {
