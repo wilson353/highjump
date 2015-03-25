@@ -1,0 +1,27 @@
+//
+// Base
+// --------------------------------------------------
+
+html,
+body,
+body > div {
+  height: 100% // Full height!
+}
+
+body {
+  font-family: "PT Sans", sans-serif;
+  overflow-x: hidden; // Prevent horizontal scroll bar when pushing content
+  padding-top: ($top-bar-height + $app-bar-height); // Height of the fixed header
+}
+
+.page-wrap {
+  margin: 0 0 0 $quick-nav-width; // Offset left by the width of the quick-nav
+  position: relative;
+  left: 0; // Required for a smooth push animation
+  right: 0; // Required for a smooth push animation
+  top: 0; // Align to the top body margin
+}
+
+.content-wrap {
+  padding: 30px 15px;
+}

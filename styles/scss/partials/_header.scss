@@ -1,0 +1,101 @@
+//
+// Header
+// --------------------------------------------------
+
+// Fixed header
+header {
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1030; // Must be higher than the z-index of .page-wrap
+}
+
+// Top bar
+.top-bar {
+  background-color: $top-bar-background-color;
+  height: $top-bar-height;
+  line-height: $top-bar-height;
+  @include clearfix();
+
+  // Reset anchors for entire top-bar
+  a {
+    line-height: 1; // Used to help vertical align content
+  }
+
+  // Reset list for entire top-bar
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .brand {
+    background: #fff;
+    border-right: 1px solid $top-bar-border-color;
+    float: left;
+
+    a {
+      display: block;
+      padding: 0 30px;
+      height: $top-bar-height;
+      line-height: $top-bar-height;
+    }
+  }
+
+  .utilities {
+    float: right;
+    padding-right: 30px;
+
+    a {
+      color: #4f5a5f;
+    }
+  }
+
+  .account {
+    border-left: 1px solid $top-bar-border-color;
+    float: right;
+    padding-left: 30px;
+
+    > ul {
+      @include clearfix();
+
+      li {
+        display: block;
+        float: left;
+      }
+    }
+
+    .name {
+      font-weight: 700;
+      margin-right: 20px;
+      text-transform: uppercase;
+    }
+
+    .icon {
+
+      > a {
+        background-color: #575a60;
+        color: #8b8f98;
+        display: block;
+        font-size: 36px;
+        height: $top-bar-height;
+        line-height: $top-bar-height;
+        text-align: center;
+        width: 70px;
+      }
+    }
+  }
+}
+
+// App bar
+.app-bar {
+  background-color: #12759f;
+  height: $app-bar-height;
+  line-height: $app-bar-height;
+  padding: 0 30px;
+
+  a {
+    color: #fff;
+  }
+}

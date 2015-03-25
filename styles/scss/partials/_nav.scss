@@ -1,0 +1,123 @@
+//
+// Navigation
+// --------------------------------------------------
+
+// Fixed left nav
+// -------------------------
+.nav-wrap {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: ($top-bar-height + $app-bar-height); // Offset the top by the height of the brand and app-bar
+
+  // Reset ALL unordered lists in the .nav-wrap
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  // Search styles used accross the push-nav menus
+  li.search {
+    background: #777c7f;
+    padding: 22px 24px;
+
+    input {
+      background: transparent;
+      border: none;
+      color: #fff;
+
+      &:focus {
+        outline: 0; // Prevent outline on focus
+      }
+    }
+
+    a {
+      padding: 0;
+    }
+  }
+}
+
+// Quick nav
+// -------------------------
+.quick-nav {
+  background-color: $quick-nav-background-color;
+  height: 100%;
+  position: relative;
+  width: $quick-nav-width;
+  z-index: 2; // Must have a higher z-index than .push-nav
+
+  li {
+    text-align: center;
+
+    // Links
+    a {
+      color: #fff;
+      display: block;
+      font-size: 32px;
+      padding: 15px 0;
+      text-align: center;
+
+      &:hover,
+      &.active {
+        background-color: #202020;
+        @include transition(all, 0.25s);
+      }
+    }
+  }
+}
+
+.push-nav {
+  background-color: #2c2c2c;
+  font-size: 18px;
+  height: 100%;
+  left: (($nav-large-width - $quick-nav-width) * -1);
+  position: absolute;
+  top: 0;
+  width: $nav-large-width;
+  z-index: 1; // Must have a lower z-index than .quick-nav
+
+  .title {
+    border-bottom: 1px solid #908f8f;
+    color: #fff;
+    padding: 24px 22px;
+    text-transform: uppercase;
+  }
+
+  li {
+    border-bottom: 1px solid #908f8f;
+    font-size: 18px;
+  }
+
+  a {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    padding: 24px 22px;
+
+    &:hover,
+    &:focus {
+      background-color: #1f1f1f;
+      @include transition(all, 0.25s);
+    }
+
+    .fa {
+      float: right;
+    }
+  }
+}
+
+.push-nav,
+.page-wrap {
+  @include transition(all, 0.5s);
+}
+
+.push-menu-open {
+  .push-nav.active {
+    left: $quick-nav-width;
+  }
+
+  .page-wrap {
+    left: $nav-large-width;
+  }
+}

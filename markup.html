@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>highjump</title>
+
+        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans">
+        <link rel="stylesheet" type="text/css" href="styles/app.css">
+    </head>
+    <body>
+        <header>
+            <div class="top-bar">
+                <div class="brand">
+                    <a href="index.html">Highjump</a>
+                </div>
+                <div class="utilities">
+                    <ul class="icon-list icon-list-horizontal">
+                        <li><a href="#"><i class="fa fa-bell-o"></i></a></li>
+                        <li><a href="#"><i class="fa fa-question"></i></a></li>
+                        <li class="last"><a href="#"><i class="fa fa-cog"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="app-bar">
+                <div class="float-right">
+                    <ul class="icon-list icon-list-horizontal">
+                        <li><a href="#"><i class="fa fa-refresh"></i></a></li>
+                        <li class="last"><a href="#"><i class="fa fa-search"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="page-wrap">
+            <div class="nav-wrap">
+                <nav class="quick-nav">
+                    <ul>
+                        <li><a href="#" class="push-menu-toggle" data-target="#menu"><i class="fa fa-bars"></i></a></li>
+                        <li><a href="#" class="push-menu-toggle" data-target="#threads"><i class="fa fa-th saved"></i></a></li>
+                        <li><a href="#" class="push-menu-toggle" data-target="#favorites"><i class="fa fa-star-o"></i></a></li>
+                    </ul>
+                </nav>
+                <nav id="menu" class="push-nav">
+                    <ul>
+                        <li><a href="#" class="with-children">Item 1<i class="fa fa-angle-right"></i></a></li>
+                        <li><a href="#" class="with-children">Item 2<i class="fa fa-angle-right"></i></a></li>
+                        <li><a href="#">Item 3</a></li>
+                        <li><a href="#" class="with-children">Item 4<i class="fa fa-angle-right"></i></a></li>
+                        <li><a href="#">Item 5</a></li>
+                        <li><a href="#" class="with-children">Item 6<i class="fa fa-angle-right"></i></a></li>
+                    </ul>
+                </nav>
+                <nav id="favorites" class="push-nav">
+                    <ul>
+                        <li><a href="#">Favorite 1</a></li>
+                        <li><a href="#">Favorite 2</a></li>
+                        <li><a href="#">Favorite 3</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="content-wrap">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Form Fields</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="textbox">textbox</label>
+                                <input type="text" class="form-control" id="textbox" placeholder="textbox">
+                            </div>
+                            <div class="form-group">
+                                <label for="textbox-disabled">textbox disabled</label>
+                                <input type="text" class="form-control" id="textbox-disabled" placeholder="textbox disabled" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="textbox-password">textbox password</label>
+                                <input type="password" class="form-control" id="textbox-password" placeholder="password">
+                            </div>
+                            <div class="form-group">
+                                <label for="textbox-number">textbox number</label>
+                                <input type="number" class="form-control" id="textbox-number" placeholder="1">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="textarea">textarea</label>
+                                <textarea class="form-control" rows="3" id="textarea"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="textarea">textarea disabled</label>
+                                <textarea class="form-control" rows="3" id="textarea" disabled></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="select">select</label>
+                                <select class="form-control" id="select">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="select-disabled">select disabled</label>
+                                <select class="form-control" id="select-disabled" disabled>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="select-multi">multi select</label>
+                                <select class="form-control" id="select-multi" multiple>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                        Checkbox 1
+                                    </label>
+                                </div>
+                                <div class="checkbox disabled">
+                                    <label>
+                                        <input type="checkbox" value="" disabled>
+                                        Checkbox 2 is disabled
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="radios" id="radio1" value="option1" checked>
+                                        Radio 1
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="radios" id="radio2" value="option2">
+                                        Radio 2
+                                    </label>
+                                </div>
+                                <div class="radio disabled">
+                                    <label>
+                                        <input type="radio" name="radios" id="radio3" value="option3" disabled>
+                                        Radio 3 is disabled
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts/app.js"></script>
+    </body>
+</html>

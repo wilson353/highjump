@@ -1,0 +1,30 @@
+.float-left   { float: left; }
+.float-right  { float: right; }
+
+.text-left    { text-align: left; }
+.text-right   { text-align: right; }
+.text-center  { text-align: center; }
+
+.icon-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    display: block;
+    font-size: $icon-size;
+    text-align: center;
+    width: 30px;
+  }
+
+  &.icon-list-horizontal {
+    li {
+      display: inline-block;
+      margin: 0 10px;
+
+      &.last {
+        margin-right: 0;
+      }
+    }
+  }
+}
