@@ -23,8 +23,8 @@
   }
 
   // Search styles used accross the push-nav menus
-  li.search {
-    background: #777c7f;
+  .search {
+    background: #07191e;
     padding: 22px 24px;
 
     input {
@@ -38,6 +38,8 @@
     }
 
     a {
+      color: #78878b;
+      float: right;
       padding: 0;
     }
   }
@@ -88,6 +90,7 @@
 
   li.ancestor > a {
     background-color: $push-color-ancestor-background;
+    border-bottom: 1px solid $push-color-ancestor-border;
     color: $push-color-ancestor;
     text-transform: uppercase;
   }
@@ -97,6 +100,11 @@
     color: $push-color-current;
     cursor: default;
     text-transform: uppercase;
+
+    &:hover {
+      background-color: $push-color-current-background;
+      color: $push-color-current;
+    }
   }
 
   li.ancestor:before,
@@ -117,15 +125,14 @@
     }
   }
 
-  a {
+  li a {
     border-bottom: 1px solid $push-color-border;
     color: $push-color;
     display: block;
     font-size: 18px;
     padding: 24px 22px;
 
-    &:hover,
-    &:focus {
+    &:hover {
       background-color: $push-color-background-hover;
       color: $push-color-hover;
       @include transition(all, 0.25s);
