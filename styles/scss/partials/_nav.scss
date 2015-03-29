@@ -10,7 +10,12 @@
   position: fixed;
   top: ($top-bar-height + $app-bar-height); // Offset the top by the height of the brand and app-bar
 
-  // Reset ALL unordered lists in the .nav-wrap
+  // Reset ALL anchors in the nav-wrap
+  a {
+    text-decoration: none;
+  }
+
+  // Reset ALL unordered lists in the nav-wrap
   ul {
     list-style: none;
     margin: 0;
@@ -41,10 +46,10 @@
 // Quick nav
 // -------------------------
 .quick-nav {
-  background-color: $quick-nav-background-color;
+  background-color: $quick-color-background;
+  width: $quick-nav-width;
   height: 100%;
   position: relative;
-  width: $quick-nav-width;
   z-index: 2; // Must have a higher z-index than .push-nav
 
   li {
@@ -52,7 +57,7 @@
 
     // Links
     a {
-      color: $quick-nav-anchor-color;
+      color: $quick-color;
       display: block;
       font-size: 32px;
       padding: 15px 0;
@@ -60,7 +65,7 @@
 
       &:hover,
       &.active {
-        color: $highjump-light-color;
+        color: $quick-color-hover;
         @include transition(all, 0.5s);
       }
     }
@@ -70,57 +75,66 @@
 // Push nav
 // -------------------------
 .push-nav {
-  background-color: $push-nav-background-color;
+  background-color: $push-color-background;
+  color: #fff;
   font-size: 18px;
-  width: $nav-large-width;
-  height: 100%;
+  width: $push-nav-width;
+  height: 100%; // Height is set in script to account for overflow-y: auto
+  overflow-y: auto; // Allow vertical scrolling for very long menus
   position: absolute;
   top: 0;
-  left: (($nav-large-width - $quick-nav-width) * -1); // Offset by the width of the quick nav and large nav combined
+  left: (($push-nav-width - $quick-nav-width) * -1); // Offset by the width of the quick nav and push nav combined
   z-index: 1; // Must have a lower z-index than .quick-nav
 
-  li {
-    border-bottom: 1px solid #908f8f;
-    font-size: 18px;
+  li.ancestor > a {
+    background-color: $push-color-ancestor-background;
+    color: $push-color-ancestor;
+    text-transform: uppercase;
+  }
 
-    &.current {
-      background-color: $push-nav-current-background-color;
-      border-bottom: 1px solid #908f8f;
+  li.current > a {
+    background-color: $push-color-current-background;
+    color: $push-color-current;
+    cursor: default;
+    text-transform: uppercase;
+  }
+
+  li.ancestor:before,
+  li.current:before {
+    content: "" !important; // Clear the icon
+  }
+
+  li.with-children {
+    position: relative;
+
+    &:before {
       color: #fff;
-      padding: 24px 22px;
-      text-transform: uppercase;
-    }
-
-    &.with-children {
-      position: relative;
-
-      &:before {
-        color: #fff;
-        font-family: FontAwesome;
-        position: absolute;
-        top: 26px;
-        right: 22px;
-        content: "\f105";
-      }
+      font-family: FontAwesome;
+      position: absolute;
+      top: 26px;
+      right: 22px;
+      content: "\f105";
     }
   }
 
   a {
-    color: #fff;
+    border-bottom: 1px solid $push-color-border;
+    color: $push-color;
     display: block;
     font-size: 18px;
     padding: 24px 22px;
 
     &:hover,
     &:focus {
-      background-color: #1f1f1f;
-      text-decoration: none;
+      background-color: $push-color-background-hover;
+      color: $push-color-hover;
       @include transition(all, 0.25s);
     }
   }
 }
 
-// Animations
+// Push nav animations
+// -------------------------
 .push-nav,
 .page-wrap {
   @include transition(left, 0.5s);
@@ -128,5 +142,13 @@
 
 .push-nav-open {
   .push-nav.open  { left: $quick-nav-width; }
-  .page-wrap      { left: $nav-large-width; }
+  .page-wrap      { left: $push-nav-width; }
+}
+
+// Stacked
+// -------------------------
+.stacked {
+  .closed ul,
+  .inactive   { display: none; }
+  .open > ul  { display: block; }
 }

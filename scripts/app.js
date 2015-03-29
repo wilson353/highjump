@@ -4,22 +4,8 @@ var highjump = {
      * Initialize application
      */
     init: function() {
-        this.getMenu();
-        this.getThreads();
-        this.getFavorites();
+        this.loadPushNav();
         this.bindUI();
-    },
-
-    getMenu: function() {
-
-    },
-
-    getThreads: function() {
-
-    },
-
-    getFavorites: function() {
-
     },
 
     /**
@@ -61,6 +47,14 @@ var highjump = {
         $("body").addClass("push-nav-open");
         $(target).addClass("open");
         $(self).addClass("active");
+    },
+
+    /**
+     * Load push navigation into DOM
+     * * NOTE, this is for model purposes only.
+     */
+    loadPushNav: function() {
+        $("#push").load("_push-nav.html", function() { console.log("load was performed.") });
     }
 };
 

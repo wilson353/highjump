@@ -2,6 +2,8 @@
 // Base
 // --------------------------------------------------
 
+// Global layouts
+// -------------------------
 html,
 body,
 body > div {
@@ -23,5 +25,23 @@ body {
 }
 
 .content-wrap {
-  padding: 30px 15px;
+  padding: 40px 15px;
+}
+
+// Global elements
+// -------------------------
+
+.page-title {
+  font-size: 28px;
+  margin: 0 0 40px 0;
+  text-transform: uppercase;
+  @include clearfix();
+
+  h1 {
+    margin: 0;
+  }
+
+  .dropdown {
+    float: left;
+  }
 }

@@ -41,10 +41,21 @@ $app-bar-anchor-color:              #fff;
 $app-bar-anchor-hover-color:        #fff;
 
 // Nav
+//
+// TO DO... Assign to brand colors
 // -------------------------
-$quick-nav-background-color:        #262d30;
-$quick-nav-anchor-color:            #59686f;
-$quick-nav-anchor-hover-color:      $highjump-light-color;
+$quick-color-background:            #0c2931;
+$quick-color:                       #78878b;
+$quick-color-hover:                 #fff;
 
-$push-nav-background-color:         #30383d;
-$push-nav-current-background-color: $highjump-light-color;
+$push-color-border:                 #395158;
+$push-color-background:             #0f333d;
+$push-color-background-hover:       #33515a;
+$push-color:                        #738489;
+$push-color-hover:                  #fff;
+
+$push-color-ancestor-background:    #33515a;
+$push-color-ancestor:               #fff;
+
+$push-color-current-background:     #a7be75;
+$push-color-current:                #fff;
