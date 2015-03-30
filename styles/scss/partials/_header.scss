@@ -112,4 +112,22 @@ header {
       color: $app-bar-anchor-hover-color;
     }
   }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .actions-group {
+    border-right: 1px solid #fff;
+    float: right;
+    margin: 0 30px;
+    @include clearfix();
+
+    li {
+      float: left;
+      margin-right: 30px;
+    }
+  }
 }

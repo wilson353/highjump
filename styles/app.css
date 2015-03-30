@@ -3546,6 +3546,27 @@ header {
 .app-bar a:hover, .app-bar a:focus {
   color: #fff;
 }
+.app-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.app-bar .actions-group {
+  border-right: 1px solid #fff;
+  float: right;
+  margin: 0 30px;
+}
+.app-bar .actions-group:before, .app-bar .actions-group:after {
+  content: " ";
+  display: table;
+}
+.app-bar .actions-group:after {
+  clear: both;
+}
+.app-bar .actions-group li {
+  float: left;
+  margin-right: 30px;
+}
 
 .nav-wrap {
   height: 100%;
