@@ -18,7 +18,7 @@ var highjump = {
         $(document).on("click", ".stacked .home > a", this.stackednavHeader);
 
         $(document).on("ready", this.resized);
-        $(window).on("resized", this.resized);
+        $(window).on("resize", this.resized);
     },
 
     /**
@@ -129,13 +129,10 @@ var highjump = {
      * Resized
      * - Set the push-nav height to account for overflow-y: auto
      */
-    resized: function(e) {
-        e.preventDefault();
-
-        var height = $(".page-wrap").outerHeight();
-        $(".push-nav").css("height", height + "px");
+    resized: function() {
+        var pagewrapHeight = $(".page-wrap").outerHeight();
+        $(".push-nav").css("height", pagewrapHeight + "px");
     }
-
 };
 
 $(function () {

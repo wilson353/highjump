@@ -3619,12 +3619,12 @@ header {
 }
 .quick-nav li a:hover, .quick-nav li a.active {
   color: #fff;
-  -webkit-transition: all, 0.5s;
-  -khtml-transition: all, 0.5s;
-  -moz-transition: all, 0.5s;
-  -ms-transition: all, 0.5s;
-  -o-transition: all, 0.5s;
-  transition: all, 0.5s;
+  -webkit-transition: all 0.5s ease-in-out;
+  -khtml-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .push-nav {
@@ -3690,12 +3690,12 @@ header {
 
 .push-nav,
 .page-wrap {
-  -webkit-transition: left, 0.5s;
-  -khtml-transition: left, 0.5s;
-  -moz-transition: left, 0.5s;
-  -ms-transition: left, 0.5s;
-  -o-transition: left, 0.5s;
-  transition: left, 0.5s;
+  -webkit-transition: left 0.5s ease-in-out;
+  -khtml-transition: left 0.5s ease-in-out;
+  -moz-transition: left 0.5s ease-in-out;
+  -ms-transition: left 0.5s ease-in-out;
+  -o-transition: left 0.5s ease-in-out;
+  transition: left 0.5s ease-in-out;
 }
 
 .push-nav-open .push-nav.open {

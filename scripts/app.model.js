@@ -13,7 +13,7 @@ highjump.model = {
      * - Loading externally to allow reuse of markup across multiple pages
      */
     loadpushnav: function() {
-        $.get("_push-nav.html", function(html) { $("#push").replaceWith(html); });
+        $.get("_push-nav.html", function(html) { $("#push").replaceWith(html); highjump.resized() });
     }
 };
 
