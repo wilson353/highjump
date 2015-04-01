@@ -2,37 +2,26 @@
 // Header
 // --------------------------------------------------
 
-// Fixed header
+// Wrapper
+// -------------------------
 header {
-  left: 0;
   position: fixed;
-  right: 0;
   top: 0;
+  left: 0; // Force full width
+  right: 0; // Force full width
   z-index: 1030; // Must be higher than the z-index of .page-wrap
 }
 
-// Top bar
+// Top Bar
+// -------------------------
 .top-bar {
-  background-color: $top-bar-background-color;
+  background-color: $top-bar-color-background;
   height: $top-bar-height;
-  line-height: $top-bar-height;
   @include clearfix();
 
-  // Reset anchors for entire top-bar
-  a {
-    line-height: 1; // Used to help vertical align content
-  }
-
-  // Reset list for entire top-bar
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
   .brand {
-    background: #fff;
-    border-right: 1px solid $top-bar-border-color;
+    background: $brand-color-background;
+    border-right: 1px solid $brand-color-border;
     float: left;
 
     a {
@@ -45,89 +34,229 @@ header {
 
   .utilities {
     float: right;
+    line-height: $top-bar-height; // Help vertically center
     padding-right: 30px;
 
-    a {
-      color: $utilities-anchor-color;
+    ul {
+      @include resetlist();
+      @include clearfix();
 
-      &:hover,
-      &:focus {
-        color: $utilities-anchor-hover-color;
-      }
+      li { float: left; }
+    }
+
+    a {
+      color: $utilities-color;
+      font-size: 24px;
+      line-height: 1; // Help vertically center
+      padding: 0 15px;
+
+      &:hover { color: $utilities-color-hover; }
     }
   }
 
   .account {
-    border-left: 1px solid $top-bar-border-color;
+    border-left: 1px solid $top-bar-color-border;
     float: right;
-    padding-left: 30px;
 
-    > ul {
+    // Dropdown Closed State
+    .dropdown .dropdown-toggle {
+      display: block;
+      height: $top-bar-height;
       @include clearfix();
 
-      li {
-        display: block;
+      .name {
+        color: $account-color;
         float: left;
+        font-weight: 700;
+        line-height: $top-bar-height; // Help vertically center
+        padding: 0 20px;
+        text-transform: uppercase;
+      }
+
+      .icon {
+        background-color: $account-color-background;
+        color: $account-color;
+        float: left;
+        font-size: 36px;
+        height: $top-bar-height;
+        line-height: $top-bar-height;
+        text-align: center;
+        width: 70px;
+      }
+
+      &:hover {
+        .name {
+          background-color: $account-color-hover-background;
+          color: $account-color-hover;
+          @include transition(all $speed $animation);
+        }
       }
     }
 
-    .name {
-      font-weight: 700;
-      margin-right: 20px;
-      text-transform: uppercase;
+    // Dropdown Open State
+    .dropdown.open .dropdown-toggle {
+      .name {
+        background-color: $account-color-hover-background;
+        color: $account-color-hover;
+      }
     }
 
-    .icon > a {
-      background-color: $account-background-color;
-      color: $account-anchor-color;
-      display: block;
-      font-size: 36px;
-      height: $top-bar-height;
-      line-height: $top-bar-height;
-      text-align: center;
-      width: 70px;
+    // Stacked Branding
+    .stacked {
+      background-color: $account-stacked-color-background;
+      min-width: 320px;
 
-      &:hover,
-      &:focus {
-        background-color: $account-hover-background-color;
-        color: $account-anchor-hover-color;
-        @include transition(all, 0.5s);
+      // Brand the current
+      li.current > a {
+        background-color: $account-stacked-color-current-background;
+        color: $account-stacked-color-current;
+        border-bottom: 1px solid $account-stacked-color-current-border;
       }
+
+      // Brand the ancestor
+      li.ancestor > a {
+        background-color: $account-stacked-color-ancestor-background;
+        color: $account-stacked-color-ancestor;
+        border-bottom: 1px solid $account-stacked-color-border;
+      }
+
+      // Brand children
+      li a {
+        border-bottom: 1px solid $account-stacked-color-border;
+        color: $account-stacked-color;
+        display: block;
+        font-size: $nav-account-font-size;
+        padding: $nav-account-vertical-padding $nav-account-horizontal-padding;
+
+        &:hover {
+          background-color: $account-stacked-color-hover-background;
+          color: $account-stacked-color-hover;
+          @include transition(all $speed $animation);
+        }
+      }
+
+      // Indent the second level
+      li.current > ul > li > a { padding-left: ($nav-account-horizontal-padding / 2) + $nav-account-horizontal-padding; }
     }
   }
 }
 
-// App bar
+// App Bar
+// -------------------------
 .app-bar {
-  background-color: $app-bar-background-color;
+  background-color: $app-bar-color-background;
   height: $app-bar-height;
   line-height: $app-bar-height;
-  padding: 0 30px;
+  padding: 0 15px;
+  @include clearfix();
 
-  a {
-    color: $app-bar-anchor-color;
+  ul { @include resetlist(); }
 
-    &:hover,
-    &:focus {
-      color: $app-bar-anchor-hover-color;
+  // Action Groups
+  .action-group {
+    border-right: 1px solid $action-group-color-border;
+    float: right;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 15px;
+    padding-right: 15px;
+
+    &.fixed {
+      border-right: 0;
+      margin-right: 0;
+      padding-right: 0;
+
+      .fa { padding-right: 0; }
+    }
+
+    > ul        { @include clearfix(); }
+    > ul > li   { float: left; }
+
+    // Top Level Links
+    > ul > li > a {
+      color: $action-group-color;
+      display: block;
+      height: $app-bar-height;
+      padding: 0 15px;
+      text-align: center;
+      text-transform: uppercase;
+
+      &:hover {
+        background-color: $action-group-color-hover-background;
+        color: $action-group-color-hover;
+        text-decoration: none;
+        @include transition(all 0.25s ease-in-out);
+      }
+    }
+
+    .fa {
+      bottom: -4px; // Used to vertically center
+      font-size: 24px;
+      padding-right: 8px;
+      position: relative; // Used to vertically center
     }
   }
 
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+  // Dropdown Branding
+  .dropdown {
 
-  .actions-group {
-    border-right: 1px solid #fff;
-    float: right;
-    margin: 0 30px;
-    @include clearfix();
+    // Open State
+    &.open .dropdown-toggle {
+      background-color: $action-group-color-hover-background;
+      color: $action-group-color-hover;
+      text-decoration: none;
+    }
 
-    li {
-      float: left;
-      margin-right: 30px;
+    .dropdown-content {
+      border-top: 1px solid #fff;
+    }
+
+    // Div Branding
+    div.dropdown-content {
+      background-color: $dropdown-color-background;
+      color: $dropdown-color;
+      padding: 0 18px;
+    }
+
+    // Stacked Branding
+    ul.dropdown-content.stacked {
+      background-color: $dropdown-color-background;
+      min-width: 320px;
+
+      // Brand the item
+      li a {
+        border-bottom: 1px solid $dropdown-color-border;
+        color: $dropdown-color;
+        display: block;
+        font-size: 13px;
+        padding: 0 18px;
+        text-transform: uppercase;
+
+        &:hover {
+          background-color: $dropdown-color-hover-background;
+          color: $dropdown-color-hover;
+          @include transition(all $speed $animation);
+        }
+      }
+
+      // Brand the current
+      li.current > a,
+      li.current > a:hover {
+        background-color: $dropdown-color-current-background;
+        border-bottom: 1px solid $dropdown-color-current-border;
+        color: #fff;
+      }
+
+      // Brand the ancestor
+      li.ancestor > a,
+      li.ancestor > a:hover {
+        background-color: $dropdown-color-ancestor-background;
+        color: $dropdown-color-ancestor;
+        border-bottom: 1px solid $dropdown-color-ancestor-border;
+      }
+
+      // Indent the second level
+      li.current > ul > li > a { padding-left: 27px; }
     }
   }
 }

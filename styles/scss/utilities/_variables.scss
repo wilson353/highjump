@@ -2,12 +2,28 @@
 // Variables
 // --------------------------------------------------
 
+// Global
+// -------------------------
+$font-family:             "PT Sans", Calibri, Helvetica;
+
+$speed:                   0.25s;
+$animation:               ease-in-out;
+
+// Devices less than 767px
+$phone:                   767px;
+
 // Header
 // -------------------------
-$top-bar-height:                          70px;
-$app-bar-height:                          50px;
+$top-bar-height:          70px;
+$app-bar-height:          50px;
 
 // Nav
 // -------------------------
-$quick-nav-width:                         70px;
-$push-nav-width:                         300px;
+$quick-nav-width:         70px;
+$push-nav-width:          300px;
+
+// Push Nav / Account
+// -------------------------
+$nav-account-font-size:             17px;
+$nav-account-horizontal-padding:    22px;
+$nav-account-vertical-padding:      24px;

@@ -1,8 +1,8 @@
 //
-// Brand colors
+// Brand Colors
 // --------------------------------------------------
 
-// Primary colors
+// Primary Colors
 // -------------------------
 $highjump-very-light-color:         rgba( 177, 227, 249, 1);
 $highjump-light-color:              rgba(121, 208, 233, 1);
@@ -10,7 +10,9 @@ $highjump-medium-color:             rgba(0, 116, 156, 1);
 $highjump-dark-color:               rgba(2, 73, 95, 1);
 $highjump-very-dark-color:          rgba(11, 41, 49, 1);
 
-// Gray scale
+$hj-accent-1:                       #a7be75;
+
+// Gray Scale
 // -------------------------
 $gray-base:                         #000;
 $gray-darker:                       lighten($gray-base, 13.5%); // #222
@@ -20,29 +22,70 @@ $gray-light:                        lighten($gray-base, 46.7%); // #777
 $gray-lighter:                      lighten($gray-base, 93.5%); // #eee
 
 //
-// Colors assigned to elements
+// Element Colors
 // --------------------------------------------------
 
 // Header
 // -------------------------
-$top-bar-background-color:          #f1f3f2;
-$top-bar-border-color:              #cecfce;
 
-$utilities-anchor-color:            #4f5a5f;
-$utilities-anchor-hover-color:      #4f5a5f;
+// Top bar
+$top-bar-color-background:            #f1f3f2;
+$top-bar-color-border:                #cecfce;
 
-$account-background-color:          #575a60;
-$account-hover-background-color:    #8b8f98;
-$account-anchor-color:              #8b8f98;
-$account-anchor-hover-color:        #575a60;
+// Top Bar - Brand
+$brand-color-background:              #fff;
+$brand-color-border:                  #cecfce;
 
-$app-bar-background-color:          $highjump-medium-color;
-$app-bar-anchor-color:              #fff;
-$app-bar-anchor-hover-color:        #fff;
+// Top Bar - Utilities
+$utilities-color:                     #889ba3;
+$utilities-color-hover:               #889ba3;
+
+// Top Bar - Account
+$account-color:                       #738489;
+$account-color-background:            #0f333d;
+$account-color-hover:                 #fff;
+$account-color-hover-background:      $hj-accent-1;
+
+// Top Bar - Account - Stacked
+$account-stacked-color-border:                #dadcdc;
+$account-stacked-color-background:            #f5f6f6;
+$account-stacked-color:                       #666666;
+$account-stacked-color-hover:                 #fff;
+$account-stacked-color-hover-background:      #33515a;
+
+$account-stacked-color-current-border:        transperent;
+$account-stacked-color-current-background:    #a7be75;
+$account-stacked-color-current:               #fff;
+
+$account-stacked-color-ancestor-border:       #52656b;
+$account-stacked-color-ancestor-background:   #33515a;
+$account-stacked-color-ancestor:              #fff;
+
+// App bar
+$app-bar-color-background:          #12759f;
+
+// App bar - Action group
+$action-group-color-border:             #60a2bf;
+$action-group-color:                    #fff;
+$action-group-color-hover:              #fff;
+$action-group-color-hover-background:   #0f6386;
+
+// App bar - Action group - Dropdown (Stacked)
+$dropdown-color-border:                 #71acc5;
+$dropdown-color-background:             #12759f;
+$dropdown-color:                        #fff;
+$dropdown-color-hover:                  #fff;
+$dropdown-color-hover-background:       #71acc5;
+
+$dropdown-color-current-border:         transperent;
+$dropdown-color-current-background:     #6cb6cd;
+$dropdown-color-current:                #fff;
+
+$dropdown-color-ancestor-border:        #6cb6cd;
+$dropdown-color-ancestor-background:    #4c91af;
+$dropdown-color-ancestor:               #fff;
 
 // Nav
-//
-// TO DO... Assign to brand colors
 // -------------------------
 $quick-color-background:            #0c2931;
 $quick-color:                       #78878b;
@@ -50,13 +93,14 @@ $quick-color-hover:                 #fff;
 
 $push-color-border:                 #395158;
 $push-color-background:             #0f333d;
-$push-color-background-hover:       #33515a;
 $push-color:                        #738489;
 $push-color-hover:                  #fff;
+$push-color-hover-background:       #33515a;
+
+$push-color-current-border:         transperent;
+$push-color-current-background:     #a7be75;
+$push-color-current:                #fff;
 
 $push-color-ancestor-border:        #52656b;
 $push-color-ancestor-background:    #33515a;
 $push-color-ancestor:               #fff;
-
-$push-color-current-background:     #a7be75;
-$push-color-current:                #fff;

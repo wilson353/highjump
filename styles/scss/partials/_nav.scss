@@ -2,7 +2,7 @@
 // Navigation
 // --------------------------------------------------
 
-// Fixed nav wrapper
+// Wrapper
 // -------------------------
 .nav-wrap {
   height: 100%;
@@ -45,7 +45,7 @@
   }
 }
 
-// Quick nav
+// Quick Nav
 // -------------------------
 .quick-nav {
   background-color: $quick-color-background;
@@ -68,18 +68,17 @@
       &:hover,
       &.active {
         color: $quick-color-hover;
-        @include transition(all 0.5s ease-in-out);
+        @include transition(all $speed $animation);
       }
     }
   }
 }
 
-// Push nav
+// Push Nav / Stacked
 // -------------------------
 .push-nav {
   background-color: $push-color-background;
-  color: #fff;
-  font-size: 18px;
+  font-size: $nav-account-font-size;
   width: $push-nav-width;
   height: 100%; // Height is set in script to account for overflow-y: auto
   overflow-y: auto; // Allow vertical scrolling for very long menus
@@ -88,74 +87,49 @@
   left: (($push-nav-width - $quick-nav-width) * -1); // Offset by the width of the quick nav and push nav combined
   z-index: 1; // Must have a lower z-index than .quick-nav
 
-  li.ancestor > a {
-    background-color: $push-color-ancestor-background;
-    border-bottom: 1px solid $push-color-ancestor-border;
-    color: $push-color-ancestor;
-    text-transform: uppercase;
-  }
-
-  li.current > a {
-    background-color: $push-color-current-background;
-    color: $push-color-current;
-    cursor: default;
-    text-transform: uppercase;
-
-    &:hover {
-      background-color: $push-color-current-background;
-      color: $push-color-current;
-    }
-  }
-
-  li.ancestor:before,
-  li.current:before {
-    content: "" !important; // Clear the icon
-  }
-
-  li.with-children {
-    position: relative;
-
-    &:before {
-      color: #fff;
-      font-family: FontAwesome;
-      position: absolute;
-      top: 26px;
-      right: 22px;
-      content: "\f105";
-    }
-  }
-
+  // Brand the item
   li a {
     border-bottom: 1px solid $push-color-border;
     color: $push-color;
     display: block;
-    font-size: 18px;
-    padding: 24px 22px;
+    font-size: $nav-account-font-size;
+    padding: $nav-account-vertical-padding $nav-account-horizontal-padding;
 
     &:hover {
-      background-color: $push-color-background-hover;
+      background-color: $push-color-hover-background;
       color: $push-color-hover;
-      @include transition(all, 0.25s);
+      @include transition(all $speed $animation);
     }
   }
+
+  // Brand the current
+  li.current > a,
+  li.current > a:hover {
+    background-color: $push-color-current-background;
+    color: $push-color-current;
+    border-bottom: 1px solid $push-color-current-border;
+  }
+
+  // Brand the ancestor
+  li.ancestor > a,
+  li.ancestor > a{
+    background-color: $push-color-ancestor-background;
+    color: $push-color-ancestor;
+    border-bottom: 1px solid $push-color-ancestor-border;
+  }
+
+  // Indent the second level
+  li.current > ul > li > a { padding-left: ($nav-account-horizontal-padding / 2) + $nav-account-horizontal-padding; }
 }
 
-// Push nav animations
+// Animations
 // -------------------------
 .push-nav,
 .page-wrap {
-  @include transition(left 0.5s ease-in-out);
+  @include transition(left $speed $animation);
 }
 
 .push-nav-open {
   .push-nav.open  { left: $quick-nav-width; }
   .page-wrap      { left: $push-nav-width; }
-}
-
-// Stacked
-// -------------------------
-.stacked {
-  .closed ul,
-  .inactive   { display: none; }
-  .open > ul  { display: block; }
 }

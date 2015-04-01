@@ -16,6 +16,8 @@ var highjump = {
         $(document).on("click", ".push-nav-toggle", this.pushnav);
         $(document).on("click", ".stacked .with-children > a", this.stackednav);
         $(document).on("click", ".stacked .home > a", this.stackednavHeader);
+        $(document).on("click", ".dropdown > .dropdown-toggle", this.dropdown);
+        $(document).on("click", this.dropdownhelper);
 
         $(document).on("ready", this.resized);
         $(window).on("resize", this.resized);
@@ -126,12 +128,60 @@ var highjump = {
     },
 
     /**
+     * Dropdown
+     */
+    dropdown: function(e) {
+        e.preventDefault();
+
+        var parent      = $(this).closest(".dropdown"),
+            group       = $(parent).attr("data-dropdown-group"),
+            isOpen      = $(parent).hasClass("open");
+
+        // If we click outside of this... close it..
+
+        if (!parent.is(e.target) // if the target of the click isn't the container...
+            && parent.has(e.target).length === 0) // ... nor a descendant of the container
+        {
+            parent.removeClass("open");
+        }
+
+        // Is this part of a group?
+        if (group != undefined) {
+            $( ".dropdown[data-dropdown-group='" + group + "']").removeClass("open");
+
+            // If this is the current item, do nothing. We are closing it. If not, open it.
+            if (!isOpen)
+                $(parent).addClass("open");
+        }
+        else {
+            $(parent).toggleClass("open");
+        }
+    },
+
+    dropdownhelper: function(e) {
+        e.preventDefault();
+
+        var container = $(".dropdown");
+
+        // Close all dropdowns when clicking outside of any
+        if (!container.is(e.target) // if the target of the click isn't the container...
+            && container.has(e.target).length === 0) // ... nor a descendant of the container
+        {
+            container.removeClass("open");
+        }
+    },
+
+    /**
      * Resized
-     * - Set the push-nav height to account for overflow-y: auto
+     * - Set the push-nav height to accommodate vertical scrolling
+     * - Set the account height to accommodate vertical scrolling
      */
     resized: function() {
-        var pagewrapHeight = $(".page-wrap").outerHeight();
-        $(".push-nav").css("height", pagewrapHeight + "px");
+        var heightForPushNav    = ($(".page-wrap").outerHeight()) + "px",
+            heightForAccount    = ($("body").outerHeight() - $(".top-bar").outerHeight()) + "px";
+
+        $(".push-nav").css("height", heightForPushNav);
+        $(".account .stacked").css("height", heightForAccount);
     }
 };
 

@@ -11,7 +11,7 @@ body > div {
 }
 
 body {
-  font-family: "PT Sans", sans-serif;
+  font-family: $font-family;
   overflow-x: hidden; // Prevent horizontal scroll bar when pushing content
   padding-top: ($top-bar-height + $app-bar-height); // Height of the fixed header
 }
@@ -44,4 +44,9 @@ body {
   .dropdown {
     float: left;
   }
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
 }

@@ -4,6 +4,7 @@
 
 //  Mixins
 @import "utilities/mixins/css3";
+@import "utilities/mixins/mixins";
 
 //  Variables
 @import "utilities/variables";
@@ -14,6 +15,8 @@
 @import "partials/helpers";
 @import "partials/header";
 @import "partials/nav";
+@import "partials/dropdown";
+@import "partials/stacked";
 
 //  Pages
 @import "pages/home";
