@@ -1,0 +1,32 @@
+//
+// Header
+// --------------------------------------------------
+
+// Wrapper
+.dropdown {
+  position: relative;
+}
+
+// No ugly outlines
+.dropdown-toggle:focus {
+  outline: 0;
+}
+
+// Content styling left up to container
+.dropdown-content {
+  display: none; // Hidden by default
+  position: absolute;
+  top: 100%;
+  left: 0;
+  float: left;
+  width: auto;
+  min-width: 200px;
+  white-space: nowrap; // Prevent text from wrapping unless width set on wrapper
+  z-index: 9999; // Appear above page
+}
+
+// Right align content
+.dropdown.right .dropdown-content { left: initial; right: 0; }
+
+// Open state
+.dropdown.open .dropdown-content  { display: block; }

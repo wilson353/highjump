@@ -1,0 +1,104 @@
+//
+// Stacked
+// --------------------------------------------------
+
+// Classes to determine visibility
+// Branding is done at the container level
+.stacked {
+  @include resetlist();
+
+  ul { @include resetlist() }
+
+  li.with-children > a {
+    position: relative;
+
+    &:after {
+
+    }
+  }
+
+  li.with-children > a:after {
+    font-family: FontAwesome;
+    content: "\f105";
+    display: inline-block;
+    float: right;
+    padding-left: 10px;
+    vertical-align: middle;
+  }
+
+  li.current > a,
+  li.ancestor > a {
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &:after   { content: "" !important; }
+  }
+
+  .inactive,
+  .closed ul{ display: none !important; }
+
+  .open > ul  { display: block; }
+}
+
+// Example markup and branding
+// -------------------------
+
+/*
+<ul class="stacked">
+  <li class="home current"><a href="#">Stacked Menu Title</a></li>
+  <li class="with-children closed">
+    <a href="#">Item 1</a>
+    <ul>
+      <li class="without-children"><a href="#">Item 1.1</a></li>
+      <li class="with-children closed">
+        <a href="#">Item 1.2</a>
+        <ul>
+          <li><a href="#">Item 1.2.1</a></li>
+          <li><a href="#">Item 1.2.2</a></li>
+          <li><a href="#">Item 1.2.3</a></li>
+        </ul>
+      </li>
+      <li class="without-children"><a href="#">Item 1.3</a></li>
+    </ul>
+  </li>
+  <li class="without-children"><a href="#">Item 2</a></li>
+  <li class="without-children"><a href="#">Item 3</a></li>
+</ul>
+
+.stacked {
+  background-color: #0f333d;
+  min-width: 320px;
+
+  // Brand the current
+  li.current > a {
+    background-color: #a7be75;
+    color: #fff;
+    border-bottom: 1px solid #52656b;
+  }
+
+  // Brand the ancestor
+  li.ancestor > a {
+    background-color: #33515a;
+    color: #fff;
+    border-bottom: 1px solid #52656b;
+  }
+
+  // Brand children
+  li a {
+    border-bottom: 1px solid #395158;
+    color: #b9c6c9;
+    display: block;
+    font-size: 17px;
+    padding: 18px;
+
+    &:hover {
+      background-color: #33515a;
+      color: #fff;
+      @include transition(all $speed $animation);
+    }
+  }
+
+  // Indent the second level
+  li.current > ul > li > a { padding-left: 27px; } // (horizontal-padding / 2) + horizontal padding
+}
+*/
