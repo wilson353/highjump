@@ -2002,9 +2002,7 @@ body {
 }
 
 .page-title {
-  font-size: 28px;
   margin: 0 0 40px 0;
-  text-transform: uppercase;
 }
 .page-title:before, .page-title:after {
   content: " ";
@@ -2014,10 +2012,50 @@ body {
   clear: both;
 }
 .page-title h1 {
+  color: #0c2931;
+  font-size: 28px;
   margin: 0;
+  text-transform: uppercase;
+}
+.page-title h1 a {
+  color: #0c2931;
+}
+.page-title .paging {
+  float: left;
+  margin: -2px 30px 0 0;
+}
+.page-title .paging a {
+  color: #b6b6b6;
 }
 .page-title .dropdown {
   float: left;
+}
+.page-title .history {
+  background-color: #f9f9f9;
+  border: 1px solid #dfe0e0;
+  list-style: none;
+  margin: 12px 0 0 0;
+  padding: 0;
+}
+.page-title .history a {
+  border-bottom: 1px solid #dfe0e0;
+  color: #000;
+  display: block;
+  padding: 22px 24px;
+  text-transform: uppercase;
+}
+.page-title .history a.active, .page-title .history a:hover {
+  background-color: #a7be75;
+  color: #fff;
+  -webkit-transition: all 0.25s ease-in-out;
+  -khtml-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+.page-title .history li.last a {
+  border-bottom: 0;
 }
 
 a:hover,
@@ -2139,7 +2177,7 @@ header {
   clear: both;
 }
 .top-bar .account .dropdown .dropdown-toggle .name {
-  color: #738489;
+  color: #889ba3;
   float: left;
   font-weight: 700;
   line-height: 70px;
@@ -2147,8 +2185,8 @@ header {
   text-transform: uppercase;
 }
 .top-bar .account .dropdown .dropdown-toggle .icon {
-  background-color: #0f333d;
-  color: #738489;
+  background-color: #4d585c;
+  color: #889ba3;
   float: left;
   font-size: 36px;
   height: 70px;
@@ -2172,6 +2210,7 @@ header {
 }
 .top-bar .account .stacked {
   background-color: #f5f6f6;
+  border-left: 1px solid #dadcdc;
   min-width: 320px;
 }
 .top-bar .account .stacked li.current > a {
@@ -2180,9 +2219,9 @@ header {
   border-bottom: 1px solid transperent;
 }
 .top-bar .account .stacked li.ancestor > a {
-  background-color: #33515a;
+  background-color: #cfd0d0;
   color: #fff;
-  border-bottom: 1px solid #dadcdc;
+  border-bottom: 1px solid #ccc;
 }
 .top-bar .account .stacked li a {
   border-bottom: 1px solid #dadcdc;
@@ -2192,7 +2231,7 @@ header {
   padding: 24px 22px;
 }
 .top-bar .account .stacked li a:hover {
-  background-color: #33515a;
+  background-color: #dedfdf;
   color: #fff;
   -webkit-transition: all 0.25s ease-in-out;
   -khtml-transition: all 0.25s ease-in-out;
@@ -2273,6 +2312,9 @@ header {
   font-size: 24px;
   padding-right: 8px;
   position: relative;
+}
+.app-bar .action-group .fa.fa-ellipsis-h {
+  padding: 0;
 }
 .app-bar .dropdown.open .dropdown-toggle {
   background-color: #0f6386;
@@ -2397,7 +2439,7 @@ header {
 }
 .push-nav li a {
   border-bottom: 1px solid #395158;
-  color: #738489;
+  color: #b9c6c9;
   display: block;
   font-size: 17px;
   padding: 24px 22px;
@@ -2466,7 +2508,7 @@ header {
 }
 
 .dropdown.right .dropdown-content {
-  left: initial;
+  left: auto;
   right: 0;
 }
 

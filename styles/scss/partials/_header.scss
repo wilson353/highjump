@@ -104,6 +104,7 @@ header {
     // Stacked Branding
     .stacked {
       background-color: $account-stacked-color-background;
+      border-left: 1px solid $account-stacked-color-border;
       min-width: 320px;
 
       // Brand the current
@@ -117,7 +118,7 @@ header {
       li.ancestor > a {
         background-color: $account-stacked-color-ancestor-background;
         color: $account-stacked-color-ancestor;
-        border-bottom: 1px solid $account-stacked-color-border;
+        border-bottom: 1px solid $account-stacked-color-ancestor-border;
       }
 
       // Brand children
@@ -194,6 +195,8 @@ header {
       font-size: 24px;
       padding-right: 8px;
       position: relative; // Used to vertically center
+
+      &.fa-ellipsis-h { padding: 0; }
     }
   }
 

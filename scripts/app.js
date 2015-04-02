@@ -16,7 +16,7 @@ var highjump = {
         $(document).on("click", ".push-nav-toggle", this.pushnav);
         $(document).on("click", ".stacked .with-children > a", this.stackednav);
         $(document).on("click", ".stacked .home > a", this.stackednavHeader);
-        $(document).on("click", ".dropdown > .dropdown-toggle", this.dropdown);
+        $(document).on("click", ".dropdown-toggle", this.dropdown);
         $(document).on("click", this.dropdownhelper);
 
         $(document).on("ready", this.resized);
@@ -136,14 +136,6 @@ var highjump = {
         var parent      = $(this).closest(".dropdown"),
             group       = $(parent).attr("data-dropdown-group"),
             isOpen      = $(parent).hasClass("open");
-
-        // If we click outside of this... close it..
-
-        if (!parent.is(e.target) // if the target of the click isn't the container...
-            && parent.has(e.target).length === 0) // ... nor a descendant of the container
-        {
-            parent.removeClass("open");
-        }
 
         // Is this part of a group?
         if (group != undefined) {

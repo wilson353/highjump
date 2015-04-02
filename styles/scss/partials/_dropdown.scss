@@ -26,7 +26,7 @@
 }
 
 // Right align content
-.dropdown.right .dropdown-content { left: initial; right: 0; }
+.dropdown.right .dropdown-content { left: auto; right: 0; }
 
 // Open state
 .dropdown.open .dropdown-content  { display: block; }

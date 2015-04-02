@@ -32,17 +32,56 @@ body {
 // -------------------------
 
 .page-title {
-  font-size: 28px;
   margin: 0 0 40px 0;
-  text-transform: uppercase;
   @include clearfix();
 
   h1 {
+    color: #0c2931;
+    font-size: 28px;
     margin: 0;
+    text-transform: uppercase;
+
+    a {
+      color: #0c2931;
+    }
+  }
+
+  .paging {
+    float: left;
+    margin: -2px 30px 0 0;
+
+    a {
+      color: #b6b6b6;
+    }
   }
 
   .dropdown {
     float: left;
+  }
+
+  .history {
+    background-color: #f9f9f9;
+    border: 1px solid #dfe0e0;
+    list-style: none;
+    margin: 12px 0 0 0;
+    padding: 0;
+
+    a {
+      border-bottom: 1px solid #dfe0e0;
+      color: #000;
+      display: block;
+      padding: 22px 24px;
+      text-transform: uppercase;
+
+      &.active,
+      &:hover {
+        background-color: #a7be75;
+        color: #fff;
+        @include transition(all $speed $animation);
+      }
+    }
+
+    li.last a { border-bottom: 0; }
   }
 }
 
