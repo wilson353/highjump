@@ -20,10 +20,10 @@
   li.with-children > a:after {
     font-family: FontAwesome;
     content: "\f105";
-    display: inline-block;
+    display: block;
     float: right;
     padding-left: 10px;
-    vertical-align: middle;
+    white-space: normal;
   }
 
   li.current > a,

@@ -138,6 +138,7 @@ var highjump = {
             isOpen      = $(parent).hasClass("open");
 
         // Is this part of a group?
+        /*
         if (group != undefined) {
             $( ".dropdown[data-dropdown-group='" + group + "']").removeClass("open");
 
@@ -147,6 +148,19 @@ var highjump = {
         }
         else {
             $(parent).toggleClass("open");
+        }
+        */
+
+        // Is there a need to keep track of related dropdowns?
+
+        if (isOpen) {
+            // We are closing the current dropdown only
+            $(parent).removeClass("open");
+        }
+        else {
+            // We are closing all open dropdowns and opening the requested
+            $( ".dropdown").removeClass("open");
+            $(parent).addClass("open");
         }
     },
 
