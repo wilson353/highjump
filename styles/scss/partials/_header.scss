@@ -20,37 +20,122 @@ header {
   @include clearfix();
 
   .brand {
-    background: $brand-color-background;
-    border-right: 1px solid $brand-color-border;
+    background: #fff;
+    border-right: 1px solid $top-bar-color-border;
     float: left;
 
     a {
       display: block;
-      padding: 0 30px;
       height: $top-bar-height;
       line-height: $top-bar-height;
+      padding: 0 30px;
     }
+  }
+
+  .utilities  .stacked,
+  .account    .stacked {
+    background-color: $top-bar-stacked-color-background;
+    border: 1px solid $top-bar-stacked-color-border;
+    border-bottom: 0;
+    min-width: 320px;
+
+    // Brand the current
+    li.current > a,
+    li.current > a:hover {
+      background-color: $top-bar-stacked-color-current-background;
+      color: $top-bar-stacked-color-current;
+      border-bottom: 1px solid $top-bar-stacked-color-current-border;
+    }
+
+    // Brand the ancestor
+    li.ancestor > a,
+    li.ancestor > a:hover {
+      background-color: $top-bar-stacked-color-ancestor-background;
+      color: $top-bar-stacked-color-ancestor;
+      border-bottom: 1px solid $top-bar-stacked-color-ancestor-border;
+    }
+
+    // Brand children
+    li > a {
+      border-bottom: 1px solid $top-bar-stacked-color-border;
+      color: $top-bar-stacked-color;
+      display: block;
+      font-size: $nav-account-font-size;
+      padding: $nav-account-vertical-padding $nav-account-horizontal-padding;
+
+      &:hover {
+        background-color: $top-bar-stacked-color-hover-background;
+        color: $top-bar-stacked-color-hover;
+        @include transition(all $speed $animation);
+      }
+    }
+
+    // Indent the second level
+    li.current > ul > li > a { padding-left: ($nav-account-horizontal-padding / 2) + $nav-account-horizontal-padding; }
   }
 
   .utilities {
     float: right;
-    line-height: $top-bar-height; // Help vertically center
     padding-right: 30px;
 
-    ul {
-      @include resetlist();
-      @include clearfix();
-
-      li { float: left; }
+    > ul      { @include resetlist(); @include clearfix(); }
+    > ul > li { float: left; }
+    > ul > li > a {
+      color: $top-bar-color;
+      display: block;
+      font-size: 24px;
+      height: $top-bar-height; // Vertically center
+      line-height: $top-bar-height; // Vertically center
+      text-align: center;
+      width: 65px; // Consistent width for each item
     }
 
-    a {
-      color: $utilities-color;
-      font-size: 24px;
-      line-height: 1; // Help vertically center
-      padding: 0 15px;
+    .stacked.alerts {
+      color: #858585;
+      font-size: 15px;
 
-      &:hover { color: $utilities-color-hover; }
+      > li.alert { position: relative; }
+      > li.alert:hover {
+        background: $top-bar-stacked-color-hover-background;
+        cursor: pointer;
+        @include transition(all $speed $animation);
+
+        > a {
+          background: transparent;
+          padding: 0;
+        }
+      }
+
+      > li.alert > a {
+        @include clearfix();
+        padding: 12px;
+      }
+
+      .row       { margin-bottom: 10px; }
+      .row.last  { margin-bottom: 0; }
+
+      .name { font-size: 20px; }
+      .name a {
+        color: $top-bar-color;
+        padding: 8px;
+
+        &:hover {
+          color: $top-bar-color;
+          background-color: transparent;
+        }
+      }
+
+      .title {
+        color: #1a1a1a;
+        font-weight: 700;
+      }
+
+      > li.view-all a {
+        background-color: #949494;
+        color: #fff;
+        padding: 12px;
+        text-align: center;
+      }
     }
   }
 
@@ -58,87 +143,41 @@ header {
     border-left: 1px solid $top-bar-color-border;
     float: right;
 
-    // Dropdown Closed State
-    .dropdown .dropdown-toggle {
+    .dropdown-toggle {
       display: block;
       height: $top-bar-height;
       @include clearfix();
 
       .name {
-        color: $account-color;
+        color: $top-bar-color;
         float: left;
         font-weight: 700;
-        line-height: $top-bar-height; // Help vertically center
+        height: $top-bar-height;
+        line-height: $top-bar-height;
         padding: 0 20px;
         text-transform: uppercase;
       }
 
       .icon {
-        background-color: $account-color-background;
-        color: $account-color;
+        background-color: $account-icon-color-background;
+        color: $account-icon-color;
         float: left;
         font-size: 36px;
-        height: $top-bar-height;
-        line-height: $top-bar-height;
+        height: $top-bar-height; // Vertically center
+        line-height: $top-bar-height; // Vertically center
         text-align: center;
         width: 70px;
       }
-
-      &:hover {
-        .name {
-          background-color: $account-color-hover-background;
-          color: $account-color-hover;
-          @include transition(all $speed $animation);
-        }
-      }
     }
+  }
 
-    // Dropdown Open State
-    .dropdown.open .dropdown-toggle {
-      .name {
-        background-color: $account-color-hover-background;
-        color: $account-color-hover;
-      }
-    }
-
-    // Stacked Branding
-    .stacked {
-      background-color: $account-stacked-color-background;
-      border-left: 1px solid $account-stacked-color-border;
-      min-width: 320px;
-
-      // Brand the current
-      li.current > a {
-        background-color: $account-stacked-color-current-background;
-        color: $account-stacked-color-current;
-        border-bottom: 1px solid $account-stacked-color-current-border;
-      }
-
-      // Brand the ancestor
-      li.ancestor > a {
-        background-color: $account-stacked-color-ancestor-background;
-        color: $account-stacked-color-ancestor;
-        border-bottom: 1px solid $account-stacked-color-ancestor-border;
-      }
-
-      // Brand children
-      li a {
-        border-bottom: 1px solid $account-stacked-color-border;
-        color: $account-stacked-color;
-        display: block;
-        font-size: $nav-account-font-size;
-        padding: $nav-account-vertical-padding $nav-account-horizontal-padding;
-
-        &:hover {
-          background-color: $account-stacked-color-hover-background;
-          color: $account-stacked-color-hover;
-          @include transition(all $speed $animation);
-        }
-      }
-
-      // Indent the second level
-      li.current > ul > li > a { padding-left: ($nav-account-horizontal-padding / 2) + $nav-account-horizontal-padding; }
-    }
+  .utilities  a:hover,
+  .account    a:hover .name,
+  .utilities  .open .dropdown-toggle,
+  .account    .open .dropdown-toggle .name {
+    background-color: $top-bar-color-hover-background;
+    color: $top-bar-color-hover;
+    @include transition(all $speed $animation);
   }
 }
 

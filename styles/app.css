@@ -2128,63 +2128,167 @@ header {
 }
 .top-bar .brand a {
   display: block;
-  padding: 0 30px;
   height: 70px;
   line-height: 70px;
+  padding: 0 30px;
+}
+.top-bar .utilities .stacked,
+.top-bar .account .stacked {
+  background-color: #f5f6f6;
+  border: 1px solid #a7be75;
+  border-bottom: 0;
+  min-width: 320px;
+}
+.top-bar .utilities .stacked li.current > a,
+.top-bar .utilities .stacked li.current > a:hover,
+.top-bar .account .stacked li.current > a,
+.top-bar .account .stacked li.current > a:hover {
+  background-color: #a7be75;
+  color: #fff;
+  border-bottom: 1px solid transperent;
+}
+.top-bar .utilities .stacked li.ancestor > a,
+.top-bar .utilities .stacked li.ancestor > a:hover,
+.top-bar .account .stacked li.ancestor > a,
+.top-bar .account .stacked li.ancestor > a:hover {
+  background-color: #cfd0d0;
+  color: #fff;
+  border-bottom: 1px solid #bcbcbc;
+}
+.top-bar .utilities .stacked li > a,
+.top-bar .account .stacked li > a {
+  border-bottom: 1px solid #a7be75;
+  color: #666;
+  display: block;
+  font-size: 17px;
+  padding: 24px 22px;
+}
+.top-bar .utilities .stacked li > a:hover,
+.top-bar .account .stacked li > a:hover {
+  background-color: #dedfdf;
+  color: #666;
+  -webkit-transition: all 0.25s ease-in-out;
+  -khtml-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+.top-bar .utilities .stacked li.current > ul > li > a,
+.top-bar .account .stacked li.current > ul > li > a {
+  padding-left: 33px;
 }
 .top-bar .utilities {
   float: right;
-  line-height: 70px;
   padding-right: 30px;
 }
-.top-bar .utilities ul {
+.top-bar .utilities > ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.top-bar .utilities ul:before, .top-bar .utilities ul:after {
+.top-bar .utilities > ul:before, .top-bar .utilities > ul:after {
   content: " ";
   display: table;
 }
-.top-bar .utilities ul:after {
+.top-bar .utilities > ul:after {
   clear: both;
 }
-.top-bar .utilities ul li {
+.top-bar .utilities > ul > li {
   float: left;
 }
-.top-bar .utilities a {
+.top-bar .utilities > ul > li > a {
   color: #889ba3;
+  display: block;
   font-size: 24px;
-  line-height: 1;
-  padding: 0 15px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  width: 65px;
 }
-.top-bar .utilities a:hover {
+.top-bar .utilities .stacked.alerts {
+  color: #858585;
+  font-size: 15px;
+}
+.top-bar .utilities .stacked.alerts > li.alert {
+  position: relative;
+}
+.top-bar .utilities .stacked.alerts > li.alert:hover {
+  background: #dedfdf;
+  cursor: pointer;
+  -webkit-transition: all 0.25s ease-in-out;
+  -khtml-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+.top-bar .utilities .stacked.alerts > li.alert:hover > a {
+  background: transparent;
+  padding: 0;
+}
+.top-bar .utilities .stacked.alerts > li.alert > a {
+  padding: 12px;
+}
+.top-bar .utilities .stacked.alerts > li.alert > a:before, .top-bar .utilities .stacked.alerts > li.alert > a:after {
+  content: " ";
+  display: table;
+}
+.top-bar .utilities .stacked.alerts > li.alert > a:after {
+  clear: both;
+}
+.top-bar .utilities .stacked.alerts .row {
+  margin-bottom: 10px;
+}
+.top-bar .utilities .stacked.alerts .row.last {
+  margin-bottom: 0;
+}
+.top-bar .utilities .stacked.alerts .name {
+  font-size: 20px;
+}
+.top-bar .utilities .stacked.alerts .name a {
   color: #889ba3;
+  padding: 8px;
+}
+.top-bar .utilities .stacked.alerts .name a:hover {
+  color: #889ba3;
+  background-color: transparent;
+}
+.top-bar .utilities .stacked.alerts .title {
+  color: #1a1a1a;
+  font-weight: 700;
+}
+.top-bar .utilities .stacked.alerts > li.view-all a {
+  background-color: #949494;
+  color: #fff;
+  padding: 12px;
+  text-align: center;
 }
 .top-bar .account {
   border-left: 1px solid #cecfce;
   float: right;
 }
-.top-bar .account .dropdown .dropdown-toggle {
+.top-bar .account .dropdown-toggle {
   display: block;
   height: 70px;
 }
-.top-bar .account .dropdown .dropdown-toggle:before, .top-bar .account .dropdown .dropdown-toggle:after {
+.top-bar .account .dropdown-toggle:before, .top-bar .account .dropdown-toggle:after {
   content: " ";
   display: table;
 }
-.top-bar .account .dropdown .dropdown-toggle:after {
+.top-bar .account .dropdown-toggle:after {
   clear: both;
 }
-.top-bar .account .dropdown .dropdown-toggle .name {
+.top-bar .account .dropdown-toggle .name {
   color: #889ba3;
   float: left;
   font-weight: 700;
+  height: 70px;
   line-height: 70px;
   padding: 0 20px;
   text-transform: uppercase;
 }
-.top-bar .account .dropdown .dropdown-toggle .icon {
+.top-bar .account .dropdown-toggle .icon {
   background-color: #4d585c;
   color: #889ba3;
   float: left;
@@ -2194,7 +2298,10 @@ header {
   text-align: center;
   width: 70px;
 }
-.top-bar .account .dropdown .dropdown-toggle:hover .name {
+.top-bar .utilities a:hover,
+.top-bar .account a:hover .name,
+.top-bar .utilities .open .dropdown-toggle,
+.top-bar .account .open .dropdown-toggle .name {
   background-color: #a7be75;
   color: #fff;
   -webkit-transition: all 0.25s ease-in-out;
@@ -2203,45 +2310,6 @@ header {
   -ms-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
-}
-.top-bar .account .dropdown.open .dropdown-toggle .name {
-  background-color: #a7be75;
-  color: #fff;
-}
-.top-bar .account .stacked {
-  background-color: #f5f6f6;
-  border-left: 1px solid #dadcdc;
-  min-width: 320px;
-}
-.top-bar .account .stacked li.current > a {
-  background-color: #a7be75;
-  color: #fff;
-  border-bottom: 1px solid transperent;
-}
-.top-bar .account .stacked li.ancestor > a {
-  background-color: #cfd0d0;
-  color: #fff;
-  border-bottom: 1px solid #ccc;
-}
-.top-bar .account .stacked li a {
-  border-bottom: 1px solid #dadcdc;
-  color: #666666;
-  display: block;
-  font-size: 17px;
-  padding: 24px 22px;
-}
-.top-bar .account .stacked li a:hover {
-  background-color: #dedfdf;
-  color: #fff;
-  -webkit-transition: all 0.25s ease-in-out;
-  -khtml-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-}
-.top-bar .account .stacked li.current > ul > li > a {
-  padding-left: 33px;
 }
 
 .app-bar {

@@ -29,37 +29,31 @@ $gray-lighter:                      lighten($gray-base, 93.5%); // #eee
 // -------------------------
 
 // Top bar
+$top-bar-color:                       #889ba3;
 $top-bar-color-background:            #f1f3f2;
 $top-bar-color-border:                #cecfce;
-
-// Top Bar - Brand
-$brand-color-background:              #fff;
-$brand-color-border:                  #cecfce;
-
-// Top Bar - Utilities
-$utilities-color:                     #889ba3;
-$utilities-color-hover:               #889ba3;
+$top-bar-color-hover:                 #fff;
+$top-bar-color-hover-background:      #a7be75;
 
 // Top Bar - Account
-$account-color:                       #889ba3;
-$account-color-background:            #4d585c;
-$account-color-hover:                 #fff;
-$account-color-hover-background:      $hj-accent-1;
+$account-icon-color:                  #889ba3;
+$account-icon-color-background:       #4d585c;
 
-// Top Bar - Account - Stacked
-$account-stacked-color-border:                #dadcdc;
-$account-stacked-color-background:            #f5f6f6;
-$account-stacked-color:                       #666666;
-$account-stacked-color-hover:                 #fff;
-$account-stacked-color-hover-background:      #dedfdf;
+// Top Bar - Stacked
+// - Used for alert dropdown & account dropdown
+$top-bar-stacked-color:                       #666;
+$top-bar-stacked-color-border:                #a7be75;
+$top-bar-stacked-color-background:            #f5f6f6;
+$top-bar-stacked-color-hover:                 #666;
+$top-bar-stacked-color-hover-background:      #dedfdf;
 
-$account-stacked-color-current-border:        transperent;
-$account-stacked-color-current-background:    #a7be75;
-$account-stacked-color-current:               #fff;
+$top-bar-stacked-color-ancestor-border:       #bcbcbc;
+$top-bar-stacked-color-ancestor-background:   #cfd0d0;
+$top-bar-stacked-color-ancestor:              #fff;
 
-$account-stacked-color-ancestor-border:       #ccc;
-$account-stacked-color-ancestor-background:   #cfd0d0;
-$account-stacked-color-ancestor:              #fff;
+$top-bar-stacked-color-current-border:        transperent;
+$top-bar-stacked-color-current-background:    #a7be75;
+$top-bar-stacked-color-current:               #fff;
 
 // App bar
 $app-bar-color-background:          #12759f;
