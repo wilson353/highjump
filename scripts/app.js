@@ -1,5 +1,9 @@
 var highjump = {
 
+    settings: {
+        medium:     1024
+    },
+
     /**
      * Initialize application
      */
@@ -19,8 +23,25 @@ var highjump = {
         $(document).on("click", ".dropdown-toggle", this.dropdown);
         $(document).on("click", this.dropdownhelper);
 
+        /*
+        $(document).on("click", ".mobile-toggle", function(e) {
+            e.preventDefault();
+
+            var parent      = $(this).closest(".mobile-app-bar"),
+                isOpen      = $(parent).hasClass("open");
+
+            if (isOpen) {
+                $(parent).removeClass("open");
+            }
+            else {
+                $(parent).addClass("open");
+            }
+        });
+        */
+
         $(document).on("ready", this.resized);
-        $(window).on("resize", this.resized);
+        $(window).on("resize",  this.resized);
+        $(window).on("scroll",  this.scrolled);
     },
 
     /**
@@ -137,22 +158,6 @@ var highjump = {
             group       = $(parent).attr("data-dropdown-group"),
             isOpen      = $(parent).hasClass("open");
 
-        // Is this part of a group?
-        /*
-        if (group != undefined) {
-            $( ".dropdown[data-dropdown-group='" + group + "']").removeClass("open");
-
-            // If this is the current item, do nothing. We are closing it. If not, open it.
-            if (!isOpen)
-                $(parent).addClass("open");
-        }
-        else {
-            $(parent).toggleClass("open");
-        }
-        */
-
-        // Is there a need to keep track of related dropdowns?
-
         if (isOpen) {
             // We are closing the current dropdown only
             $(parent).removeClass("open");
@@ -164,9 +169,10 @@ var highjump = {
         }
     },
 
+    /**
+     * Dropdown Helper
+     */
     dropdownhelper: function(e) {
-        e.preventDefault();
-
         var container = $(".dropdown");
 
         // Close all dropdowns when clicking outside of any
@@ -179,15 +185,86 @@ var highjump = {
 
     /**
      * Resized
-     * - Set the push-nav height to accommodate vertical scrolling
-     * - Set the account height to accommodate vertical scrolling
      */
     resized: function() {
-        var heightForPushNav    = ($(".page-wrap").outerHeight()) + "px",
-            heightForAccount    = ($("body").outerHeight() - $(".top-bar").outerHeight()) + "px";
+        var pageWidth = $("body").width();
 
-        $(".push-nav").css("height", heightForPushNav);
-        $(".account .stacked").css("height", heightForAccount);
+        // Media Queries
+        if (pageWidth <= highjump.settings.medium) {
+
+            // Move action groups back to quick-nav
+            var actionGroups = $(".app-bar .action-group").detach();
+            $(".mobile-app-bar .mobile-content").append(actionGroups);
+
+        }
+        else {
+
+            // Detach fixed nav-wrap
+            $('.nav-wrap').trigger("sticky_kit:detach");
+
+            // Move action groups back to app-bar
+            var actionGroups = $(".mobile-app-bar .mobile-content .action-group").detach();
+            $(".app-bar").append(actionGroups);
+
+        }
+
+        //highjump.setDynamicHeights();
+    },
+
+    /**
+     * Scrolled
+     */
+    scrolled: function() {
+        //highjump.setDynamicHeights();
+        highjump.pinned();
+    },
+
+    pinned: function() {
+        var pageWidth = $("body").width(),
+            pinnedTop = $('.nav-wrap').position().top,
+            quickNavHeight = $(".quick-nav").outerHeight();
+
+        if (pageWidth <= highjump.settings.medium) {
+            if( $(window).scrollTop() > pinnedTop ) {
+                $('.nav-wrap').addClass("pinned");
+
+                if ($('.pinned-spacer').length == 0)
+                    $('.nav-wrap').after().append("<div class='pinned-spacer' style='height:" + quickNavHeight + "px'></div>");
+            }
+            else {
+                $('.nav-wrap').removeClass("pinned");
+                $('.pinned-spacer').remove();
+            }
+        }
+        else {
+            $('.nav-wrap').removeClass("pinned");
+            $('.pinned-spacer').remove();
+        }
+    },
+
+    /**
+     * Set Push Nav Height
+     */
+    setDynamicHeights: function() {
+        var pageWidth               = $("body").width(),
+            accountNavHeight        = $("body").outerHeight() - $(".top-bar").outerHeight(),
+            pushNavHeight           = 0;
+
+        if (pageWidth <= highjump.settings.medium) {
+            if ($(".quick-nav").hasClass("is_stuck"))
+                pushNavHeight = $("body").outerHeight() - $(".quick-nav").outerHeight();
+            else {
+                if ($(document).scrollTop() === 0)
+                    pushNavHeight = $("body").outerHeight() - $(".quick-nav").outerHeight() - $(".quick-nav").offset().top;
+                else
+                    pushNavHeight = ($("body").outerHeight() - $(".quick-nav").outerHeight() - $(".quick-nav").offset().top) + $(document).scrollTop();
+            }
+        }
+        else
+            pushNavHeight = ($(".page-wrap").outerHeight()) + "px";
+
+        $(".account .stacked")  .css("height", accountNavHeight + "px");
+        $(".push-nav")          .css("height", pushNavHeight + "px");
     }
 };
 

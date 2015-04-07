@@ -10,17 +10,8 @@
   position: fixed;
   top: ($top-bar-height + $app-bar-height); // Offset the top by the height of the brand and app-bar
 
-  // Reset ALL anchors in the nav-wrap
-  a {
-    text-decoration: none;
-  }
-
-  // Reset ALL unordered lists in the nav-wrap
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+  a   { text-decoration: none; }
+  ul  { @include resetlist(); }
 
   // Search styles used accross the push-nav menus
   .search {
@@ -72,6 +63,8 @@
       }
     }
   }
+
+  li.mobile-nav-toggle { display: none; }
 }
 
 // Push Nav / Stacked
@@ -79,12 +72,12 @@
 .push-nav {
   background-color: $push-color-background;
   font-size: $nav-account-font-size;
-  width: $push-nav-width;
+  left: (($push-nav-width - $quick-nav-width) * -1); // Offset by the width of the quick nav and push nav combined
   height: 100%; // Height is set in script to account for overflow-y: auto
   overflow-y: auto; // Allow vertical scrolling for very long menus
   position: absolute;
   top: 0;
-  left: (($push-nav-width - $quick-nav-width) * -1); // Offset by the width of the quick nav and push nav combined
+  width: $push-nav-width;
   z-index: 1; // Must have a lower z-index than .quick-nav
 
   // Brand the item
@@ -132,4 +125,91 @@
 .push-nav-open {
   .push-nav.open  { left: $quick-nav-width; }
   .page-wrap      { left: $push-nav-width; }
+}
+
+
+
+
+
+// Media Queries
+// -------------------------
+@media (max-width: $medium) {
+
+  .nav-wrap {
+    height: auto;
+    position: static;
+
+    &.pinned {
+      position: fixed;
+      top: 0;
+      z-index: 10000;
+      width: 100%;
+    }
+  }
+
+  .quick-nav {
+    height: auto;
+    position: relative; // Help position app-bar
+    width: 100%;
+    @include clearfix();
+
+    ul {
+      float: left;
+      width: 100%;
+
+      li {
+        float: left;
+      }
+
+      li.mobile-app-bar {
+        display: block;
+        float: right;
+
+        .mobile-toggle {
+          background-color: #12759f;
+          color: #fff;
+          margin-right: 0;
+        }
+
+        .mobile-content {
+          background: #12759f;
+          display: none;
+          left: 0;
+          position: absolute;
+          top: 100%;
+          width: 100%;
+
+          a {
+            color: #fff;
+          }
+        }
+
+        &.open {
+          .mobile-content {
+            display: block;
+          }
+        }
+      }
+
+      a {
+        margin-right: 30px;
+        padding: 15px;
+      }
+    }
+  }
+
+  .push-nav {
+    display: none;
+    height: 100%;
+    position: static;
+    width: 100%;
+  }
+
+  .push-nav-open {
+    overflow-y: hidden;
+
+    .push-nav.open  { display: block; left: 0; overflow-y: auto; }
+    .page-wrap      { left: 0; }
+  }
+
 }

@@ -2,7 +2,7 @@
 // Base
 // --------------------------------------------------
 
-// Global layouts
+// Global Layout
 // -------------------------
 html,
 body,
@@ -28,7 +28,7 @@ body {
   padding: 40px 15px;
 }
 
-// Global elements
+// Global Elements
 // -------------------------
 
 .page-title {
@@ -88,4 +88,19 @@ body {
 a:hover,
 a:focus {
   text-decoration: none;
+}
+
+// Media Queries
+// -------------------------
+@media (max-width: $medium) {
+
+  body {
+    padding: 0;
+  }
+
+  .page-wrap {
+    margin: 0;
+    position: static;
+  }
+
 }

@@ -13,17 +13,13 @@
     position: relative;
 
     &:after {
-
+      font-family: FontAwesome;
+      content: "\f105";
+      display: block;
+      float: right;
+      padding-left: 10px;
+      white-space: normal;
     }
-  }
-
-  li.with-children > a:after {
-    font-family: FontAwesome;
-    content: "\f105";
-    display: block;
-    float: right;
-    padding-left: 10px;
-    white-space: normal;
   }
 
   li.current > a,
