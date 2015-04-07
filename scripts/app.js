@@ -199,9 +199,6 @@ var highjump = {
         }
         else {
 
-            // Detach fixed nav-wrap
-            $('.nav-wrap').trigger("sticky_kit:detach");
-
             // Move action groups back to app-bar
             var actionGroups = $(".mobile-app-bar .mobile-content .action-group").detach();
             $(".app-bar").append(actionGroups);
