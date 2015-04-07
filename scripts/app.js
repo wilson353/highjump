@@ -208,14 +208,14 @@ var highjump = {
 
         }
 
-        //highjump.setDynamicHeights();
+        highjump.setDynamicHeights();
     },
 
     /**
      * Scrolled
      */
     scrolled: function() {
-        //highjump.setDynamicHeights();
+        highjump.setDynamicHeights();
         highjump.pinned();
     },
 
