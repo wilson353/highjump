@@ -36,6 +36,85 @@
   .open > ul  { display: block; }
 }
 
+.stacked-primary {
+  background-color: $push-color-background;
+
+  // Brand the item
+  li a {
+    border-bottom: 1px solid $push-color-border;
+    color: $push-color;
+    display: block;
+    font-size: $nav-account-font-size;
+    padding: $nav-account-vertical-padding $nav-account-horizontal-padding;
+
+    &:hover {
+      background-color: $push-color-hover-background;
+      color: $push-color-hover;
+      @include transition(all $speed $animation);
+    }
+  }
+
+  // Brand the current
+  li.current > a,
+  li.current > a:hover {
+    background-color: $push-color-current-background;
+    color: $push-color-current;
+    border-bottom: 1px solid $push-color-current-border;
+  }
+
+  // Brand the ancestor
+  li.ancestor > a,
+  li.ancestor > a{
+    background-color: $push-color-ancestor-background;
+    color: $push-color-ancestor;
+    border-bottom: 1px solid $push-color-ancestor-border;
+  }
+
+  // Indent the second level
+  li.current > ul > li > a { padding-left: ($nav-account-horizontal-padding / 2) + $nav-account-horizontal-padding; }
+}
+
+.stacked-secondary {
+  background-color: $top-bar-stacked-color-background;
+  border: 1px solid $top-bar-stacked-color-border;
+  border-bottom: 0;
+  min-width: 320px;
+
+  // Brand the current
+  li.current > a,
+  li.current > a:hover {
+    background-color: $top-bar-stacked-color-current-background;
+    color: $top-bar-stacked-color-current;
+    border-bottom: 1px solid $top-bar-stacked-color-current-border;
+  }
+
+  // Brand the ancestor
+  li.ancestor > a,
+  li.ancestor > a:hover {
+    background-color: $top-bar-stacked-color-ancestor-background;
+    color: $top-bar-stacked-color-ancestor;
+    border-bottom: 1px solid $top-bar-stacked-color-ancestor-border;
+  }
+
+  // Brand children
+  li > a {
+    border-bottom: 1px solid $top-bar-stacked-color-border;
+    color: $top-bar-stacked-color;
+    display: block;
+    font-size: $nav-account-font-size;
+    padding: $nav-account-vertical-padding $nav-account-horizontal-padding;
+
+    &:hover {
+      background-color: $top-bar-stacked-color-hover-background;
+      color: $top-bar-stacked-color-hover;
+      @include transition(all $speed $animation);
+    }
+  }
+
+  // Indent the second level
+  li.current > ul > li > a { padding-left: ($nav-account-horizontal-padding / 2) + $nav-account-horizontal-padding; }
+}
+
 // Example markup and branding
 // -------------------------
 

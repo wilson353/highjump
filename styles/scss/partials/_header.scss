@@ -18,179 +18,77 @@ header {
   background-color: $top-bar-color-background;
   height: $top-bar-height;
   @include clearfix();
-}
 
-.brand {
-  background: #fff;
-  border-right: 1px solid $top-bar-color-border;
-  float: left;
+  .brand {
+    background: #fff;
+    border-right: 1px solid $top-bar-color-border;
+    float: left;
 
-  a {
-    display: block;
-    height: $top-bar-height;
-    line-height: $top-bar-height;
-    padding: 0 30px;
-  }
-}
-
-.utilities  .stacked,
-.account    .stacked {
-  background-color: $top-bar-stacked-color-background;
-  border: 1px solid $top-bar-stacked-color-border;
-  border-bottom: 0;
-  min-width: 320px;
-
-  // Brand the current
-  li.current > a,
-  li.current > a:hover {
-    background-color: $top-bar-stacked-color-current-background;
-    color: $top-bar-stacked-color-current;
-    border-bottom: 1px solid $top-bar-stacked-color-current-border;
-  }
-
-  // Brand the ancestor
-  li.ancestor > a,
-  li.ancestor > a:hover {
-    background-color: $top-bar-stacked-color-ancestor-background;
-    color: $top-bar-stacked-color-ancestor;
-    border-bottom: 1px solid $top-bar-stacked-color-ancestor-border;
-  }
-
-  // Brand children
-  li > a {
-    border-bottom: 1px solid $top-bar-stacked-color-border;
-    color: $top-bar-stacked-color;
-    display: block;
-    font-size: $nav-account-font-size;
-    padding: $nav-account-vertical-padding $nav-account-horizontal-padding;
-
-    &:hover {
-      background-color: $top-bar-stacked-color-hover-background;
-      color: $top-bar-stacked-color-hover;
-      @include transition(all $speed $animation);
-    }
-  }
-
-  // Indent the second level
-  li.current > ul > li > a { padding-left: ($nav-account-horizontal-padding / 2) + $nav-account-horizontal-padding; }
-}
-
-.utilities {
-  float: right;
-  padding-right: 30px;
-
-  > ul      { @include resetlist(); @include clearfix(); }
-  > ul > li { float: left; }
-  > ul > li > a {
-    color: $top-bar-color;
-    display: block;
-    font-size: 24px;
-    height: $top-bar-height; // Vertically center
-    line-height: $top-bar-height; // Vertically center
-    text-align: center;
-    width: 65px; // Consistent width for each item
-  }
-
-  .stacked.alerts {
-    color: #858585;
-    font-size: 15px;
-
-    > li.alert { position: relative; }
-    > li.alert:hover {
-      background: $top-bar-stacked-color-hover-background;
-      cursor: pointer;
-      @include transition(all $speed $animation);
-
-      > a {
-        background: transparent;
-        padding: 0;
-      }
-    }
-
-    > li.alert > div {
-      padding: 12px;
-    }
-
-    > li.alert > a {
-      @include clearfix();
-      padding: 12px;
-    }
-
-    .link {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .row       { margin-bottom: 10px; }
-    .row.last  { margin-bottom: 0; }
-
-    .name { font-size: 20px; }
-    .name a {
-      color: $top-bar-color;
-      padding: 8px;
-
-      &:hover {
-        color: $top-bar-color;
-        background-color: transparent;
-      }
-    }
-
-    .title {
-      color: #1a1a1a;
-      font-weight: 700;
-    }
-
-    > li.view-all a {
-      background-color: #949494;
-      color: #fff;
-      padding: 12px;
-      text-align: center;
-    }
-  }
-}
-
-.account {
-  border-left: 1px solid $top-bar-color-border;
-  float: right;
-
-  .dropdown-toggle {
-    display: block;
-    height: $top-bar-height;
-    @include clearfix();
-
-    .name {
-      color: $top-bar-color;
-      float: left;
-      font-weight: 700;
+    a {
+      display: block;
       height: $top-bar-height;
       line-height: $top-bar-height;
-      padding: 0 20px;
-      text-transform: uppercase;
+      padding: 0 30px;
     }
+  }
 
-    .icon {
-      background-color: $account-icon-color-background;
-      color: $account-icon-color;
-      float: left;
-      font-size: 36px;
+  .utilities {
+    float: right;
+    padding-right: 30px;
+
+    > ul      { @include resetlist(); @include clearfix(); }
+    > ul > li { float: left; }
+    > ul > li > a {
+      color: $top-bar-color;
+      display: block;
+      font-size: 24px;
       height: $top-bar-height; // Vertically center
       line-height: $top-bar-height; // Vertically center
       text-align: center;
-      width: 70px;
+      width: 65px; // Consistent width for each item
     }
   }
-}
 
-.utilities  a:hover,
-.account    a:hover .name,
-.utilities  .open .dropdown-toggle,
-.account    .open .dropdown-toggle .name {
-  background-color: $top-bar-color-hover-background;
-  color: $top-bar-color-hover;
-  @include transition(all $speed $animation);
+  .account {
+    border-left: 1px solid $top-bar-color-border;
+    float: right;
+
+    .dropdown-toggle {
+      display: block;
+      height: $top-bar-height;
+      @include clearfix();
+
+      .name {
+        color: $top-bar-color;
+        float: left;
+        font-weight: 700;
+        height: $top-bar-height;
+        line-height: $top-bar-height;
+        padding: 0 20px;
+        text-transform: uppercase;
+      }
+
+      .icon {
+        background-color: $account-icon-color-background;
+        color: $account-icon-color;
+        float: left;
+        font-size: 36px;
+        height: $top-bar-height; // Vertically center
+        line-height: $top-bar-height; // Vertically center
+        text-align: center;
+        width: 70px;
+      }
+    }
+  }
+
+  .utilities a:hover,
+  .utilities .open .dropdown-toggle,
+  .account a:hover .name,
+  .account .open .dropdown-toggle .name {
+    background-color: $top-bar-color-hover-background;
+    color: $top-bar-color-hover;
+    @include transition(all $speed $animation);
+  }
 }
 
 // App Bar
@@ -315,6 +213,10 @@ header {
   }
 }
 
+
+
+
+
 // Media Queries
 // -------------------------
 @media (max-width: $medium) {
@@ -326,4 +228,47 @@ header {
   .app-bar {
     display: none;
   }
+
+}
+
+@media (max-width: $small) {
+
+  .top-bar {
+    height: $small-top-bar-height;
+
+    .brand a {
+      height: $small-top-bar-height;
+      line-height: $small-top-bar-height;
+      padding: 0 15px;
+
+      img {
+        max-height: 30px;
+      }
+    }
+
+    .utilities {
+      padding-right: 0;
+
+      > ul > li > a {
+        height: $small-top-bar-height;
+        line-height: $small-top-bar-height;
+        width: 45px;
+      }
+    }
+
+    .account .dropdown-toggle {
+      height: $small-top-bar-height;
+
+      .name {
+        height: $small-top-bar-height;
+        line-height: $small-top-bar-height;
+        padding: 0 15px;
+      }
+
+      .icon {
+        display: none;
+      }
+    }
+  }
+
 }

@@ -45,11 +45,11 @@
   position: relative;
   z-index: 2; // Must have a higher z-index than .push-nav
 
-  li {
-    text-align: center;
+  > ul > li {
+    //text-align: center;
 
     // Links
-    a {
+    > a {
       color: $quick-color;
       display: block;
       font-size: 32px;
@@ -79,40 +79,6 @@
   top: 0;
   width: $push-nav-width;
   z-index: 1; // Must have a lower z-index than .quick-nav
-
-  // Brand the item
-  li a {
-    border-bottom: 1px solid $push-color-border;
-    color: $push-color;
-    display: block;
-    font-size: $nav-account-font-size;
-    padding: $nav-account-vertical-padding $nav-account-horizontal-padding;
-
-    &:hover {
-      background-color: $push-color-hover-background;
-      color: $push-color-hover;
-      @include transition(all $speed $animation);
-    }
-  }
-
-  // Brand the current
-  li.current > a,
-  li.current > a:hover {
-    background-color: $push-color-current-background;
-    color: $push-color-current;
-    border-bottom: 1px solid $push-color-current-border;
-  }
-
-  // Brand the ancestor
-  li.ancestor > a,
-  li.ancestor > a{
-    background-color: $push-color-ancestor-background;
-    color: $push-color-ancestor;
-    border-bottom: 1px solid $push-color-ancestor-border;
-  }
-
-  // Indent the second level
-  li.current > ul > li > a { padding-left: ($nav-account-horizontal-padding / 2) + $nav-account-horizontal-padding; }
 }
 
 // Animations
@@ -153,15 +119,14 @@
     width: 100%;
     @include clearfix();
 
-    ul {
+    > ul {
       float: left;
-      width: 100%;
 
-      li {
+      > li {
         float: left;
       }
 
-      li.mobile-app-bar {
+      > li.mobile-app-bar {
         display: block;
         float: right;
 
@@ -191,7 +156,7 @@
         }
       }
 
-      a {
+      > li > a {
         margin-right: 30px;
         padding: 15px;
       }
@@ -206,10 +171,34 @@
   }
 
   .push-nav-open {
-    overflow-y: hidden;
+    .push-nav.open {
+      display: block;
+      left: 0;
+      overflow-y: auto;
+    }
 
-    .push-nav.open  { display: block; left: 0; overflow-y: auto; }
-    .page-wrap      { left: 0; }
+    .page-wrap {
+      left: 0;
+    }
+  }
+
+}
+
+@media (max-width: $small) {
+
+  .quick-nav > ul > li > a,
+  .quick-nav .utilities > ul > li > a{
+    font-size: 24px;
+    margin-right: 0;
+  }
+
+  .quick-nav .utilities {
+    float: left;
+
+    > ul,
+    > ul > li {
+      float: left;
+    }
   }
 
 }

@@ -2112,86 +2112,37 @@ header {
 .top-bar:after {
   clear: both;
 }
-
-.brand {
+.top-bar .brand {
   background: #fff;
   border-right: 1px solid #cecfce;
   float: left;
 }
-.brand a {
+.top-bar .brand a {
   display: block;
   height: 70px;
   line-height: 70px;
   padding: 0 30px;
 }
-
-.utilities .stacked,
-.account .stacked {
-  background-color: #f5f6f6;
-  border: 1px solid #a7be75;
-  border-bottom: 0;
-  min-width: 320px;
-}
-.utilities .stacked li.current > a,
-.utilities .stacked li.current > a:hover,
-.account .stacked li.current > a,
-.account .stacked li.current > a:hover {
-  background-color: #a7be75;
-  color: #fff;
-  border-bottom: 1px solid transperent;
-}
-.utilities .stacked li.ancestor > a,
-.utilities .stacked li.ancestor > a:hover,
-.account .stacked li.ancestor > a,
-.account .stacked li.ancestor > a:hover {
-  background-color: #cfd0d0;
-  color: #fff;
-  border-bottom: 1px solid #bcbcbc;
-}
-.utilities .stacked li > a,
-.account .stacked li > a {
-  border-bottom: 1px solid #a7be75;
-  color: #666;
-  display: block;
-  font-size: 17px;
-  padding: 24px 22px;
-}
-.utilities .stacked li > a:hover,
-.account .stacked li > a:hover {
-  background-color: #dedfdf;
-  color: #666;
-  -webkit-transition: all 0.25s ease-in-out;
-  -khtml-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-}
-.utilities .stacked li.current > ul > li > a,
-.account .stacked li.current > ul > li > a {
-  padding-left: 33px;
-}
-
-.utilities {
+.top-bar .utilities {
   float: right;
   padding-right: 30px;
 }
-.utilities > ul {
+.top-bar .utilities > ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.utilities > ul:before, .utilities > ul:after {
+.top-bar .utilities > ul:before, .top-bar .utilities > ul:after {
   content: " ";
   display: table;
 }
-.utilities > ul:after {
+.top-bar .utilities > ul:after {
   clear: both;
 }
-.utilities > ul > li {
+.top-bar .utilities > ul > li {
   float: left;
 }
-.utilities > ul > li > a {
+.top-bar .utilities > ul > li > a {
   color: #889ba3;
   display: block;
   font-size: 24px;
@@ -2200,91 +2151,22 @@ header {
   text-align: center;
   width: 65px;
 }
-.utilities .stacked.alerts {
-  color: #858585;
-  font-size: 15px;
-}
-.utilities .stacked.alerts > li.alert {
-  position: relative;
-}
-.utilities .stacked.alerts > li.alert:hover {
-  background: #dedfdf;
-  cursor: pointer;
-  -webkit-transition: all 0.25s ease-in-out;
-  -khtml-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-}
-.utilities .stacked.alerts > li.alert:hover > a {
-  background: transparent;
-  padding: 0;
-}
-.utilities .stacked.alerts > li.alert > div {
-  padding: 12px;
-}
-.utilities .stacked.alerts > li.alert > a {
-  padding: 12px;
-}
-.utilities .stacked.alerts > li.alert > a:before, .utilities .stacked.alerts > li.alert > a:after {
-  content: " ";
-  display: table;
-}
-.utilities .stacked.alerts > li.alert > a:after {
-  clear: both;
-}
-.utilities .stacked.alerts .link {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.utilities .stacked.alerts .row {
-  margin-bottom: 10px;
-}
-.utilities .stacked.alerts .row.last {
-  margin-bottom: 0;
-}
-.utilities .stacked.alerts .name {
-  font-size: 20px;
-}
-.utilities .stacked.alerts .name a {
-  color: #889ba3;
-  padding: 8px;
-}
-.utilities .stacked.alerts .name a:hover {
-  color: #889ba3;
-  background-color: transparent;
-}
-.utilities .stacked.alerts .title {
-  color: #1a1a1a;
-  font-weight: 700;
-}
-.utilities .stacked.alerts > li.view-all a {
-  background-color: #949494;
-  color: #fff;
-  padding: 12px;
-  text-align: center;
-}
-
-.account {
+.top-bar .account {
   border-left: 1px solid #cecfce;
   float: right;
 }
-.account .dropdown-toggle {
+.top-bar .account .dropdown-toggle {
   display: block;
   height: 70px;
 }
-.account .dropdown-toggle:before, .account .dropdown-toggle:after {
+.top-bar .account .dropdown-toggle:before, .top-bar .account .dropdown-toggle:after {
   content: " ";
   display: table;
 }
-.account .dropdown-toggle:after {
+.top-bar .account .dropdown-toggle:after {
   clear: both;
 }
-.account .dropdown-toggle .name {
+.top-bar .account .dropdown-toggle .name {
   color: #889ba3;
   float: left;
   font-weight: 700;
@@ -2293,7 +2175,7 @@ header {
   padding: 0 20px;
   text-transform: uppercase;
 }
-.account .dropdown-toggle .icon {
+.top-bar .account .dropdown-toggle .icon {
   background-color: #4d585c;
   color: #889ba3;
   float: left;
@@ -2303,11 +2185,10 @@ header {
   text-align: center;
   width: 70px;
 }
-
-.utilities a:hover,
-.account a:hover .name,
-.utilities .open .dropdown-toggle,
-.account .open .dropdown-toggle .name {
+.top-bar .utilities a:hover,
+.top-bar .utilities .open .dropdown-toggle,
+.top-bar .account a:hover .name,
+.top-bar .account .open .dropdown-toggle .name {
   background-color: #a7be75;
   color: #fff;
   -webkit-transition: all 0.25s ease-in-out;
@@ -2450,6 +2331,38 @@ header {
     display: none;
   }
 }
+@media (max-width: 767px) {
+  .top-bar {
+    height: 45px;
+  }
+  .top-bar .brand a {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 15px;
+  }
+  .top-bar .brand a img {
+    max-height: 30px;
+  }
+  .top-bar .utilities {
+    padding-right: 0;
+  }
+  .top-bar .utilities > ul > li > a {
+    height: 45px;
+    line-height: 45px;
+    width: 45px;
+  }
+  .top-bar .account .dropdown-toggle {
+    height: 45px;
+  }
+  .top-bar .account .dropdown-toggle .name {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 15px;
+  }
+  .top-bar .account .dropdown-toggle .icon {
+    display: none;
+  }
+}
 .nav-wrap {
   height: 100%;
   left: 0;
@@ -2489,17 +2402,14 @@ header {
   position: relative;
   z-index: 2;
 }
-.quick-nav li {
-  text-align: center;
-}
-.quick-nav li a {
+.quick-nav > ul > li > a {
   color: #78878b;
   display: block;
   font-size: 32px;
   padding: 15px 0;
   text-align: center;
 }
-.quick-nav li a:hover, .quick-nav li a.active {
+.quick-nav > ul > li > a:hover, .quick-nav > ul > li > a.active {
   color: #fff;
   -webkit-transition: all 0.25s ease-in-out;
   -khtml-transition: all 0.25s ease-in-out;
@@ -2522,38 +2432,6 @@ header {
   top: 0;
   width: 300px;
   z-index: 1;
-}
-.push-nav li a {
-  border-bottom: 1px solid #395158;
-  color: #b9c6c9;
-  display: block;
-  font-size: 17px;
-  padding: 24px 22px;
-}
-.push-nav li a:hover {
-  background-color: #33515a;
-  color: #fff;
-  -webkit-transition: all 0.25s ease-in-out;
-  -khtml-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-}
-.push-nav li.current > a,
-.push-nav li.current > a:hover {
-  background-color: #a7be75;
-  color: #fff;
-  border-bottom: 1px solid transperent;
-}
-.push-nav li.ancestor > a,
-.push-nav li.ancestor > a {
-  background-color: #33515a;
-  color: #fff;
-  border-bottom: 1px solid #52656b;
-}
-.push-nav li.current > ul > li > a {
-  padding-left: 33px;
 }
 
 .push-nav,
@@ -2597,23 +2475,22 @@ header {
   .quick-nav:after {
     clear: both;
   }
-  .quick-nav ul {
-    float: left;
-    width: 100%;
-  }
-  .quick-nav ul li {
+  .quick-nav > ul {
     float: left;
   }
-  .quick-nav ul li.mobile-app-bar {
+  .quick-nav > ul > li {
+    float: left;
+  }
+  .quick-nav > ul > li.mobile-app-bar {
     display: block;
     float: right;
   }
-  .quick-nav ul li.mobile-app-bar .mobile-toggle {
+  .quick-nav > ul > li.mobile-app-bar .mobile-toggle {
     background-color: #12759f;
     color: #fff;
     margin-right: 0;
   }
-  .quick-nav ul li.mobile-app-bar .mobile-content {
+  .quick-nav > ul > li.mobile-app-bar .mobile-content {
     background: #12759f;
     display: none;
     left: 0;
@@ -2621,13 +2498,13 @@ header {
     top: 100%;
     width: 100%;
   }
-  .quick-nav ul li.mobile-app-bar .mobile-content a {
+  .quick-nav > ul > li.mobile-app-bar .mobile-content a {
     color: #fff;
   }
-  .quick-nav ul li.mobile-app-bar.open .mobile-content {
+  .quick-nav > ul > li.mobile-app-bar.open .mobile-content {
     display: block;
   }
-  .quick-nav ul a {
+  .quick-nav > ul > li > a {
     margin-right: 30px;
     padding: 15px;
   }
@@ -2639,9 +2516,6 @@ header {
     width: 100%;
   }
 
-  .push-nav-open {
-    overflow-y: hidden;
-  }
   .push-nav-open .push-nav.open {
     display: block;
     left: 0;
@@ -2649,6 +2523,21 @@ header {
   }
   .push-nav-open .page-wrap {
     left: 0;
+  }
+}
+@media (max-width: 767px) {
+  .quick-nav > ul > li > a,
+  .quick-nav .utilities > ul > li > a {
+    font-size: 24px;
+    margin-right: 0;
+  }
+
+  .quick-nav .utilities {
+    float: left;
+  }
+  .quick-nav .utilities > ul,
+  .quick-nav .utilities > ul > li {
+    float: left;
   }
 }
 .dropdown {
@@ -2717,6 +2606,81 @@ header {
   display: block;
 }
 
+.stacked-primary {
+  background-color: #0f333d;
+}
+.stacked-primary li a {
+  border-bottom: 1px solid #395158;
+  color: #b9c6c9;
+  display: block;
+  font-size: 17px;
+  padding: 24px 22px;
+}
+.stacked-primary li a:hover {
+  background-color: #33515a;
+  color: #fff;
+  -webkit-transition: all 0.25s ease-in-out;
+  -khtml-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+.stacked-primary li.current > a,
+.stacked-primary li.current > a:hover {
+  background-color: #a7be75;
+  color: #fff;
+  border-bottom: 1px solid transperent;
+}
+.stacked-primary li.ancestor > a,
+.stacked-primary li.ancestor > a {
+  background-color: #33515a;
+  color: #fff;
+  border-bottom: 1px solid #52656b;
+}
+.stacked-primary li.current > ul > li > a {
+  padding-left: 33px;
+}
+
+.stacked-secondary {
+  background-color: #f5f6f6;
+  border: 1px solid #a7be75;
+  border-bottom: 0;
+  min-width: 320px;
+}
+.stacked-secondary li.current > a,
+.stacked-secondary li.current > a:hover {
+  background-color: #a7be75;
+  color: #fff;
+  border-bottom: 1px solid transperent;
+}
+.stacked-secondary li.ancestor > a,
+.stacked-secondary li.ancestor > a:hover {
+  background-color: #cfd0d0;
+  color: #fff;
+  border-bottom: 1px solid #bcbcbc;
+}
+.stacked-secondary li > a {
+  border-bottom: 1px solid #a7be75;
+  color: #666;
+  display: block;
+  font-size: 17px;
+  padding: 24px 22px;
+}
+.stacked-secondary li > a:hover {
+  background-color: #dedfdf;
+  color: #666;
+  -webkit-transition: all 0.25s ease-in-out;
+  -khtml-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+.stacked-secondary li.current > ul > li > a {
+  padding-left: 33px;
+}
+
 /*
 <ul class="stacked">
   <li class="home current"><a href="#">Stacked Menu Title</a></li>
@@ -2776,6 +2740,86 @@ header {
   li.current > ul > li > a { padding-left: 27px; } // (horizontal-padding / 2) + horizontal padding
 }
 */
+ul.alerts {
+  color: #858585;
+  font-size: 15px;
+}
+ul.alerts > li.alert {
+  position: relative;
+}
+ul.alerts > li.alert:hover {
+  background: #dedfdf;
+  cursor: pointer;
+  -webkit-transition: all 0.25s ease-in-out;
+  -khtml-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+ul.alerts > li.alert:hover > a {
+  background: transparent;
+  padding: 0;
+}
+ul.alerts > li.alert > div {
+  padding: 12px;
+}
+ul.alerts > li.alert > a {
+  padding: 12px;
+}
+ul.alerts > li.alert > a:before, ul.alerts > li.alert > a:after {
+  content: " ";
+  display: table;
+}
+ul.alerts > li.alert > a:after {
+  clear: both;
+}
+ul.alerts .link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+ul.alerts .row {
+  margin-bottom: 10px;
+}
+ul.alerts .row.last {
+  margin-bottom: 0;
+}
+ul.alerts .name {
+  font-size: 20px;
+}
+ul.alerts .name a {
+  color: #889ba3;
+  padding: 8px;
+}
+ul.alerts .name a:hover {
+  color: #889ba3;
+  background-color: transparent;
+}
+ul.alerts .title {
+  color: #1a1a1a;
+  font-weight: 700;
+}
+ul.alerts > li.view-all a {
+  background-color: #949494;
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .quick-nav {
+    position: relative;
+  }
+  .quick-nav li.alerts {
+    position: static;
+  }
+  .quick-nav li.alerts ul.alerts {
+    width: 100%;
+  }
+}
 .tiles {
   list-style: none;
   margin: 0;

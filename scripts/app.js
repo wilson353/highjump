@@ -1,7 +1,8 @@
 var highjump = {
 
     settings: {
-        medium:     1024
+        small:  767,
+        medium: 1024
     },
 
     /**
@@ -22,22 +23,6 @@ var highjump = {
         $(document).on("click", ".stacked .home > a", this.stackednavHeader);
         $(document).on("click", ".dropdown-toggle", this.dropdown);
         $(document).on("click", this.dropdownhelper);
-
-        /*
-        $(document).on("click", ".mobile-toggle", function(e) {
-            e.preventDefault();
-
-            var parent      = $(this).closest(".mobile-app-bar"),
-                isOpen      = $(parent).hasClass("open");
-
-            if (isOpen) {
-                $(parent).removeClass("open");
-            }
-            else {
-                $(parent).addClass("open");
-            }
-        });
-        */
 
         $(document).on("ready", this.resized);
         $(window).on("resize",  this.resized);
@@ -190,12 +175,23 @@ var highjump = {
         var pageWidth = $("body").width();
 
         // Media Queries
-        if (pageWidth <= highjump.settings.medium) {
+        if (pageWidth < highjump.settings.small) {
+
+            // Move utilities to quick-nav
+            var alertToggle = $("li.alerts").detach();
+            $(".quick-nav > ul").append(alertToggle);
+
+
+        }
+        else if (pageWidth < highjump.settings.medium) {
 
             // Move action groups back to quick-nav
             var actionGroups = $(".app-bar .action-group").detach();
             $(".mobile-app-bar .mobile-content").append(actionGroups);
 
+            // Move alerts back to top-bar
+            var alerts = $("li.alerts").detach();
+            $(".utilities > ul").prepend(alerts);
         }
         else {
 
@@ -245,20 +241,10 @@ var highjump = {
     setDynamicHeights: function() {
         var pageWidth               = $("body").width(),
             accountNavHeight        = $("body").outerHeight() - $(".top-bar").outerHeight(),
-            pushNavHeight           = 0;
+            pushNavHeight           = $(".page-wrap").outerHeight();
 
-        if (pageWidth <= highjump.settings.medium) {
-            if ($(".quick-nav").hasClass("is_stuck"))
-                pushNavHeight = $("body").outerHeight() - $(".quick-nav").outerHeight();
-            else {
-                if ($(document).scrollTop() === 0)
-                    pushNavHeight = $("body").outerHeight() - $(".quick-nav").outerHeight() - $(".quick-nav").offset().top;
-                else
-                    pushNavHeight = ($("body").outerHeight() - $(".quick-nav").outerHeight() - $(".quick-nav").offset().top) + $(document).scrollTop();
-            }
-        }
-        else
-            pushNavHeight = ($(".page-wrap").outerHeight()) + "px";
+        if (pageWidth < highjump.settings.medium)
+            pushNavHeight = $("body").outerHeight() - $(".quick-nav").outerHeight();
 
         $(".account .stacked")  .css("height", accountNavHeight + "px");
         $(".push-nav")          .css("height", pushNavHeight + "px");
