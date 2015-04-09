@@ -24,6 +24,20 @@ var highjump = {
         $(document).on("click", ".dropdown-toggle", this.dropdown);
         $(document).on("click", this.dropdownhelper);
 
+        $(document).on("click", ".mobile-toggle", function(e) {
+            e.preventDefault();
+
+            var parent      = $(this).closest(".mobile-app-bar"),
+                isOpen      = $(parent).hasClass("open");
+
+            if (isOpen) {
+                $(parent).removeClass("open");
+            }
+            else {
+                $(parent).addClass("open");
+            }
+        });
+
         $(document).on("ready", this.resized);
         $(window).on("resize",  this.resized);
         $(window).on("scroll",  this.scrolled);
@@ -172,32 +186,32 @@ var highjump = {
      * Resized
      */
     resized: function() {
-        var pageWidth = $("body").width();
+        var pageWidth = highjump.viewport().width;
 
-        // Media Queries
-        if (pageWidth < highjump.settings.small) {
-
-            // Move utilities to quick-nav
-            var alertToggle = $("li.alerts").detach();
-            $(".quick-nav > ul").append(alertToggle);
-
-
-        }
-        else if (pageWidth < highjump.settings.medium) {
-
-            // Move action groups back to quick-nav
-            var actionGroups = $(".app-bar .action-group").detach();
-            $(".mobile-app-bar .mobile-content").append(actionGroups);
-
-            // Move alerts back to top-bar
-            var alerts = $("li.alerts").detach();
-            $(".utilities > ul").prepend(alerts);
-        }
-        else {
+        if (pageWidth >= highjump.settings.medium) {
 
             // Move action groups back to app-bar
             var actionGroups = $(".mobile-app-bar .mobile-content .action-group").detach();
             $(".app-bar").append(actionGroups);
+
+        }
+
+        if (pageWidth < highjump.settings.medium) {
+
+            // Move alerts back to top-bar
+            var alerts = $("li.alerts").detach();
+            $(".utilities > ul").prepend(alerts);
+
+            // Move action groups back to quick-nav
+            var actionGroups = $(".app-bar .action-group").detach();
+            $(".mobile-app-bar .mobile-content").append(actionGroups);
+        }
+
+        if (pageWidth < highjump.settings.small) {
+
+            // Move alerts to quick-nav
+            var alertToggle = $("li.alerts").detach();
+            $(".quick-nav > ul").append(alertToggle);
 
         }
 
@@ -239,15 +253,36 @@ var highjump = {
      * Set Push Nav Height
      */
     setDynamicHeights: function() {
-        var pageWidth               = $("body").width(),
-            accountNavHeight        = $("body").outerHeight() - $(".top-bar").outerHeight(),
-            pushNavHeight           = $(".page-wrap").outerHeight();
+        var pageWidth               = highjump.viewport().width,
+            accountNavHeight        = ($("body").outerHeight() - $(".top-bar").outerHeight()) + "px",
+            pushNavHeight           = 0;
 
-        if (pageWidth < highjump.settings.medium)
-            pushNavHeight = $("body").outerHeight() - $(".quick-nav").outerHeight();
+        if (pageWidth <= highjump.settings.medium) {
+            if ($(".quick-nav").hasClass("is_stuck"))
+                pushNavHeight = $("body").outerHeight() - $(".quick-nav").outerHeight();
+            else {
+                if ($(document).scrollTop() === 0)
+                    pushNavHeight = $("body").outerHeight() - $(".quick-nav").outerHeight() - $(".quick-nav").offset().top;
+                else
+                    pushNavHeight = ($("body").outerHeight() - $(".quick-nav").outerHeight() - $(".quick-nav").offset().top) + $(document).scrollTop();
+            }
 
-        $(".account .stacked")  .css("height", accountNavHeight + "px");
+            accountNavHeight = "auto";
+        }
+        else
+            pushNavHeight = $(".page-wrap").outerHeight();
+
+        $(".account .stacked")  .css("height", accountNavHeight);
         $(".push-nav")          .css("height", pushNavHeight + "px");
+    },
+
+    viewport: function() {
+        var e = window, a = 'inner';
+        if (!('innerWidth' in window )) {
+            a = 'client';
+            e = document.documentElement || document.body;
+        }
+        return { width : e[ a+'Width' ] , height : e[ a+'Height' ] };
     }
 };
 

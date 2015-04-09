@@ -64,7 +64,9 @@
     }
   }
 
-  li.mobile-nav-toggle { display: none; }
+  li.mobile-app-bar {
+    display: none;
+  }
 }
 
 // Push Nav / Stacked
@@ -121,6 +123,7 @@
 
     > ul {
       float: left;
+      width: 100%;
 
       > li {
         float: left;
@@ -133,6 +136,7 @@
         .mobile-toggle {
           background-color: #12759f;
           color: #fff;
+          display: block;
           margin-right: 0;
         }
 
@@ -146,6 +150,14 @@
 
           a {
             color: #fff;
+          }
+
+          .action-group.fixed li {
+            width: initial;
+          }
+
+          .action-group li {
+            width: 100%;
           }
         }
 
@@ -174,7 +186,8 @@
     .push-nav.open {
       display: block;
       left: 0;
-      overflow-y: auto;
+      position: absolute;
+      top: 75px;
     }
 
     .page-wrap {
@@ -200,5 +213,14 @@
       float: left;
     }
   }
+
+  .push-nav-open {
+    overflow-y: hidden;
+
+    .push-nav.open {
+      top: 64px;
+    }
+  }
+
 
 }

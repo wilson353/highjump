@@ -1998,6 +1998,8 @@ body {
 }
 
 .content-wrap {
+  height: 100%;
+  position: relative;
   padding: 40px 15px;
 }
 
@@ -2070,7 +2072,6 @@ a:focus {
 
   .page-wrap {
     margin: 0;
-    position: static;
   }
 }
 .float-left {
@@ -2284,43 +2285,6 @@ header {
   color: #fff;
   padding: 0 18px;
 }
-.app-bar .dropdown ul.dropdown-content.stacked {
-  background-color: #12759f;
-  min-width: 320px;
-}
-.app-bar .dropdown ul.dropdown-content.stacked li a {
-  border-bottom: 1px solid #71acc5;
-  color: #fff;
-  display: block;
-  font-size: 13px;
-  padding: 0 18px;
-  text-transform: uppercase;
-}
-.app-bar .dropdown ul.dropdown-content.stacked li a:hover {
-  background-color: #71acc5;
-  color: #fff;
-  -webkit-transition: all 0.25s ease-in-out;
-  -khtml-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-}
-.app-bar .dropdown ul.dropdown-content.stacked li.current > a,
-.app-bar .dropdown ul.dropdown-content.stacked li.current > a:hover {
-  background-color: #6cb6cd;
-  border-bottom: 1px solid transperent;
-  color: #fff;
-}
-.app-bar .dropdown ul.dropdown-content.stacked li.ancestor > a,
-.app-bar .dropdown ul.dropdown-content.stacked li.ancestor > a:hover {
-  background-color: #4c91af;
-  color: #fff;
-  border-bottom: 1px solid #6cb6cd;
-}
-.app-bar .dropdown ul.dropdown-content.stacked li.current > ul > li > a {
-  padding-left: 27px;
-}
 
 @media (max-width: 1024px) {
   header {
@@ -2363,6 +2327,13 @@ header {
     display: none;
   }
 }
+footer {
+  background: #ccc;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
 .nav-wrap {
   height: 100%;
   left: 0;
@@ -2418,7 +2389,7 @@ header {
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
-.quick-nav li.mobile-nav-toggle {
+.quick-nav li.mobile-app-bar {
   display: none;
 }
 
@@ -2477,6 +2448,7 @@ header {
   }
   .quick-nav > ul {
     float: left;
+    width: 100%;
   }
   .quick-nav > ul > li {
     float: left;
@@ -2488,6 +2460,7 @@ header {
   .quick-nav > ul > li.mobile-app-bar .mobile-toggle {
     background-color: #12759f;
     color: #fff;
+    display: block;
     margin-right: 0;
   }
   .quick-nav > ul > li.mobile-app-bar .mobile-content {
@@ -2500,6 +2473,12 @@ header {
   }
   .quick-nav > ul > li.mobile-app-bar .mobile-content a {
     color: #fff;
+  }
+  .quick-nav > ul > li.mobile-app-bar .mobile-content .action-group.fixed li {
+    width: initial;
+  }
+  .quick-nav > ul > li.mobile-app-bar .mobile-content .action-group li {
+    width: 100%;
   }
   .quick-nav > ul > li.mobile-app-bar.open .mobile-content {
     display: block;
@@ -2519,7 +2498,8 @@ header {
   .push-nav-open .push-nav.open {
     display: block;
     left: 0;
-    overflow-y: auto;
+    position: absolute;
+    top: 75px;
   }
   .push-nav-open .page-wrap {
     left: 0;
@@ -2538,6 +2518,13 @@ header {
   .quick-nav .utilities > ul,
   .quick-nav .utilities > ul > li {
     float: left;
+  }
+
+  .push-nav-open {
+    overflow-y: hidden;
+  }
+  .push-nav-open .push-nav.open {
+    top: 64px;
   }
 }
 .dropdown {
@@ -2648,18 +2635,6 @@ header {
   border-bottom: 0;
   min-width: 320px;
 }
-.stacked-secondary li.current > a,
-.stacked-secondary li.current > a:hover {
-  background-color: #a7be75;
-  color: #fff;
-  border-bottom: 1px solid transperent;
-}
-.stacked-secondary li.ancestor > a,
-.stacked-secondary li.ancestor > a:hover {
-  background-color: #cfd0d0;
-  color: #fff;
-  border-bottom: 1px solid #bcbcbc;
-}
 .stacked-secondary li > a {
   border-bottom: 1px solid #a7be75;
   color: #666;
@@ -2677,69 +2652,60 @@ header {
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
+.stacked-secondary li.current > a,
+.stacked-secondary li.current > a:hover {
+  background-color: #a7be75;
+  color: #fff;
+  border-bottom: 1px solid transperent;
+}
+.stacked-secondary li.ancestor > a,
+.stacked-secondary li.ancestor > a:hover {
+  background-color: #cfd0d0;
+  color: #fff;
+  border-bottom: 1px solid #bcbcbc;
+}
 .stacked-secondary li.current > ul > li > a {
   padding-left: 33px;
 }
 
-/*
-<ul class="stacked">
-  <li class="home current"><a href="#">Stacked Menu Title</a></li>
-  <li class="with-children closed">
-    <a href="#">Item 1</a>
-    <ul>
-      <li class="without-children"><a href="#">Item 1.1</a></li>
-      <li class="with-children closed">
-        <a href="#">Item 1.2</a>
-        <ul>
-          <li><a href="#">Item 1.2.1</a></li>
-          <li><a href="#">Item 1.2.2</a></li>
-          <li><a href="#">Item 1.2.3</a></li>
-        </ul>
-      </li>
-      <li class="without-children"><a href="#">Item 1.3</a></li>
-    </ul>
-  </li>
-  <li class="without-children"><a href="#">Item 2</a></li>
-  <li class="without-children"><a href="#">Item 3</a></li>
-</ul>
-
-.stacked {
-  background-color: #0f333d;
+.stacked-tertiary {
+  background-color: #12759f;
   min-width: 320px;
-
-  // Brand the current
-  li.current > a {
-    background-color: #a7be75;
-    color: #fff;
-    border-bottom: 1px solid #52656b;
-  }
-
-  // Brand the ancestor
-  li.ancestor > a {
-    background-color: #33515a;
-    color: #fff;
-    border-bottom: 1px solid #52656b;
-  }
-
-  // Brand children
-  li a {
-    border-bottom: 1px solid #395158;
-    color: #b9c6c9;
-    display: block;
-    font-size: 17px;
-    padding: 18px;
-
-    &:hover {
-      background-color: #33515a;
-      color: #fff;
-      @include transition(all $speed $animation);
-    }
-  }
-
-  // Indent the second level
-  li.current > ul > li > a { padding-left: 27px; } // (horizontal-padding / 2) + horizontal padding
 }
-*/
+.stacked-tertiary li a {
+  border-bottom: 1px solid #71acc5;
+  color: #fff;
+  display: block;
+  font-size: 13px;
+  padding: 0 18px;
+  text-transform: uppercase;
+}
+.stacked-tertiary li a:hover {
+  background-color: #71acc5;
+  color: #fff;
+  -webkit-transition: all 0.25s ease-in-out;
+  -khtml-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+.stacked-tertiary li.current > a,
+.stacked-tertiary li.current > a:hover {
+  background-color: #6cb6cd;
+  border-bottom: 1px solid transperent;
+  color: #fff;
+}
+.stacked-tertiary li.ancestor > a,
+.stacked-tertiary li.ancestor > a:hover {
+  background-color: #4c91af;
+  color: #fff;
+  border-bottom: 1px solid #6cb6cd;
+}
+.stacked-tertiary li.current > ul > li > a {
+  padding-left: 27px;
+}
+
 ul.alerts {
   color: #858585;
   font-size: 15px;

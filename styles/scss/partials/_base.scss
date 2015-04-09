@@ -25,6 +25,8 @@ body {
 }
 
 .content-wrap {
+  height: 100%; // new
+  position: relative; // new
   padding: 40px 15px;
 }
 
@@ -90,6 +92,10 @@ a:focus {
   text-decoration: none;
 }
 
+
+
+
+
 // Media Queries
 // -------------------------
 @media (max-width: $medium) {
@@ -100,7 +106,7 @@ a:focus {
 
   .page-wrap {
     margin: 0;
-    position: static;
+    //position: static;
   }
 
 }

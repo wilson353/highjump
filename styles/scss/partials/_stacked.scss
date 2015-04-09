@@ -80,6 +80,21 @@
   border-bottom: 0;
   min-width: 320px;
 
+  // Brand children
+  li > a {
+    border-bottom: 1px solid $top-bar-stacked-color-border;
+    color: $top-bar-stacked-color;
+    display: block;
+    font-size: $nav-account-font-size;
+    padding: $nav-account-vertical-padding $nav-account-horizontal-padding;
+
+    &:hover {
+      background-color: $top-bar-stacked-color-hover-background;
+      color: $top-bar-stacked-color-hover;
+      @include transition(all $speed $animation);
+    }
+  }
+
   // Brand the current
   li.current > a,
   li.current > a:hover {
@@ -96,84 +111,46 @@
     border-bottom: 1px solid $top-bar-stacked-color-ancestor-border;
   }
 
-  // Brand children
-  li > a {
-    border-bottom: 1px solid $top-bar-stacked-color-border;
-    color: $top-bar-stacked-color;
-    display: block;
-    font-size: $nav-account-font-size;
-    padding: $nav-account-vertical-padding $nav-account-horizontal-padding;
-
-    &:hover {
-      background-color: $top-bar-stacked-color-hover-background;
-      color: $top-bar-stacked-color-hover;
-      @include transition(all $speed $animation);
-    }
-  }
-
   // Indent the second level
   li.current > ul > li > a { padding-left: ($nav-account-horizontal-padding / 2) + $nav-account-horizontal-padding; }
 }
 
-// Example markup and branding
-// -------------------------
-
-/*
-<ul class="stacked">
-  <li class="home current"><a href="#">Stacked Menu Title</a></li>
-  <li class="with-children closed">
-    <a href="#">Item 1</a>
-    <ul>
-      <li class="without-children"><a href="#">Item 1.1</a></li>
-      <li class="with-children closed">
-        <a href="#">Item 1.2</a>
-        <ul>
-          <li><a href="#">Item 1.2.1</a></li>
-          <li><a href="#">Item 1.2.2</a></li>
-          <li><a href="#">Item 1.2.3</a></li>
-        </ul>
-      </li>
-      <li class="without-children"><a href="#">Item 1.3</a></li>
-    </ul>
-  </li>
-  <li class="without-children"><a href="#">Item 2</a></li>
-  <li class="without-children"><a href="#">Item 3</a></li>
-</ul>
-
-.stacked {
-  background-color: #0f333d;
+.stacked-tertiary {
+  background-color: $dropdown-color-background;
   min-width: 320px;
 
-  // Brand the current
-  li.current > a {
-    background-color: #a7be75;
-    color: #fff;
-    border-bottom: 1px solid #52656b;
-  }
-
-  // Brand the ancestor
-  li.ancestor > a {
-    background-color: #33515a;
-    color: #fff;
-    border-bottom: 1px solid #52656b;
-  }
-
-  // Brand children
+  // Brand the item
   li a {
-    border-bottom: 1px solid #395158;
-    color: #b9c6c9;
+    border-bottom: 1px solid $dropdown-color-border;
+    color: $dropdown-color;
     display: block;
-    font-size: 17px;
-    padding: 18px;
+    font-size: 13px;
+    padding: 0 18px;
+    text-transform: uppercase;
 
     &:hover {
-      background-color: #33515a;
-      color: #fff;
+      background-color: $dropdown-color-hover-background;
+      color: $dropdown-color-hover;
       @include transition(all $speed $animation);
     }
   }
 
+  // Brand the current
+  li.current > a,
+  li.current > a:hover {
+    background-color: $dropdown-color-current-background;
+    border-bottom: 1px solid $dropdown-color-current-border;
+    color: #fff;
+  }
+
+  // Brand the ancestor
+  li.ancestor > a,
+  li.ancestor > a:hover {
+    background-color: $dropdown-color-ancestor-background;
+    color: $dropdown-color-ancestor;
+    border-bottom: 1px solid $dropdown-color-ancestor-border;
+  }
+
   // Indent the second level
-  li.current > ul > li > a { padding-left: 27px; } // (horizontal-padding / 2) + horizontal padding
+  li.current > ul > li > a { padding-left: 27px; }
 }
-*/
