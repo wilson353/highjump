@@ -149,16 +149,26 @@
           width: 100%;
 
           a {
+            display: block;
             color: #fff;
+            font-size: 17px;
+            padding: 15px;
+            border-bottom: 1px solid #395158;
           }
 
           .action-group.fixed li {
             width: initial;
           }
 
+          .action-group.fixed a {
+            border-bottom: none;
+          }
+
           .action-group li {
+            float: left;
             width: 100%;
           }
+
         }
 
         &.open {
@@ -172,6 +182,25 @@
         margin-right: 30px;
         padding: 15px;
       }
+    }
+
+    li a {
+      border-bottom: 1px solid #395158;
+    }
+
+    .action-group.fixed > ul {
+      float: left;
+      width: 100%;
+      border-bottom: 1px solid #395158;
+    }
+
+    .action-group .dropdown-content.stacked {
+      background-color: #12759f;
+      width: 100%;
+    }
+
+    .fa.fa-circle-thin {
+      padding-right: 6px;
     }
   }
 

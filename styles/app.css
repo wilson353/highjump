@@ -2472,12 +2472,20 @@ footer {
     width: 100%;
   }
   .quick-nav > ul > li.mobile-app-bar .mobile-content a {
+    display: block;
     color: #fff;
+    font-size: 17px;
+    padding: 15px;
+    border-bottom: 1px solid #395158;
   }
   .quick-nav > ul > li.mobile-app-bar .mobile-content .action-group.fixed li {
     width: initial;
   }
+  .quick-nav > ul > li.mobile-app-bar .mobile-content .action-group.fixed a {
+    border-bottom: none;
+  }
   .quick-nav > ul > li.mobile-app-bar .mobile-content .action-group li {
+    float: left;
     width: 100%;
   }
   .quick-nav > ul > li.mobile-app-bar.open .mobile-content {
@@ -2486,6 +2494,21 @@ footer {
   .quick-nav > ul > li > a {
     margin-right: 30px;
     padding: 15px;
+  }
+  .quick-nav li a {
+    border-bottom: 1px solid #395158;
+  }
+  .quick-nav .action-group.fixed > ul {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #395158;
+  }
+  .quick-nav .action-group .dropdown-content.stacked {
+    background-color: #12759f;
+    width: 100%;
+  }
+  .quick-nav .fa.fa-circle-thin {
+    padding-right: 6px;
   }
 
   .push-nav {
