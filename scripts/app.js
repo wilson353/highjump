@@ -26,6 +26,9 @@ var highjump = {
 
         $(document).on("click", ".mobile-toggle", function(e) {
             e.preventDefault();
+			// close other menu if one is active
+            $(".push-nav-toggle.active").click()
+			
 
             var parent      = $(this).closest(".mobile-app-bar"),
                 isOpen      = $(parent).hasClass("open");
@@ -49,6 +52,9 @@ var highjump = {
      */
     pushnav: function(e) {
         e.preventDefault();
+		// close mobile menu if it is open
+        $(".mobile-app-bar.open .mobile-toggle").click();
+				
 
         var self        = $(this),
             current     = $(".push-nav.open").attr("id"),
