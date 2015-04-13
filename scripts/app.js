@@ -29,7 +29,6 @@ var highjump = {
 			// close other menu if one is active
             $(".push-nav-toggle.active").click()
 			
-
             var parent      = $(this).closest(".mobile-app-bar"),
                 isOpen      = $(parent).hasClass("open");
 
@@ -43,7 +42,9 @@ var highjump = {
 
         $(document).on("ready", this.resized);
         $(window).on("resize",  this.resized);
-        $(window).on("scroll",  this.scrolled);
+        //sfl
+        //$(window).on("scroll", this.scrolled);
+        $(".content-wrap").on("scroll", this.scrolled);
     },
 
     /**
@@ -55,7 +56,6 @@ var highjump = {
 		// close mobile menu if it is open
         $(".mobile-app-bar.open .mobile-toggle").click();
 				
-
         var self        = $(this),
             current     = $(".push-nav.open").attr("id"),
             target      = $(self).attr("data-target");
@@ -238,7 +238,8 @@ var highjump = {
             quickNavHeight = $(".quick-nav").outerHeight();
 
         if (pageWidth <= highjump.settings.medium) {
-            if( $(window).scrollTop() > pinnedTop ) {
+            // changed from evaluating scroll on body to .content-wrap 4/13 sfl
+            if ($(".content-wrap").scrollTop() > pinnedTop) {
                 $('.nav-wrap').addClass("pinned");
 
                 if ($('.pinned-spacer').length == 0)
