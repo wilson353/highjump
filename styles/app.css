@@ -2188,6 +2188,11 @@ header {
   text-align: center;
   width: 70px;
 }
+.top-bar .thread-title {
+  float: left;
+  font-size: 2em;
+  line-height: 70px;
+}
 .top-bar .utilities a:hover,
 .top-bar .utilities .open .dropdown-toggle,
 .top-bar .account a:hover .name,
@@ -2327,6 +2332,9 @@ header {
   }
   .top-bar .account .dropdown-toggle .icon {
     display: none;
+  }
+  .top-bar .thread-title {
+    line-height: 45px;
   }
 }
 footer {
