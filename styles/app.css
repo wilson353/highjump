@@ -1987,6 +1987,7 @@ body {
   font-family: "PT Sans", Calibri, Helvetica;
   overflow-x: hidden;
   padding-top: 120px;
+  overflow-y: hidden;
 }
 
 .page-wrap {
@@ -2001,6 +2002,7 @@ body {
   height: 100%;
   position: relative;
   padding: 40px 15px;
+  overflow-y: auto;
 }
 
 .page-title {
