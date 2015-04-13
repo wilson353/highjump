@@ -193,6 +193,7 @@ var highjump = {
      */
     resized: function() {
         var pageWidth = highjump.viewport().width;
+        var headerWidth = $(".thread-title").width() + $(".account").width() + $(".utilities").width() + $(".brand").width() + 2; // adding 2 to include the 2px of borders
 
         if (pageWidth >= highjump.settings.medium) {
 
@@ -220,7 +221,13 @@ var highjump = {
             $(".quick-nav > ul").append(alertToggle);
 
         }
-
+		
+		if (pageWidth <= headerWidth){
+		    $(".thread-title").hide();
+		} else {
+		    $(".thread-title").show();
+		}
+		
         highjump.setDynamicHeights();
     },
 
