@@ -14,6 +14,7 @@ body {
   font-family: $font-family;
   overflow-x: hidden; // Prevent horizontal scroll bar when pushing content
   padding-top: ($top-bar-height + $app-bar-height); // Height of the fixed header
+  overflow-y: hidden; // Moving scrollbar from body to .content-wrap per phone call 4/13 sfl
 }
 
 .page-wrap {
@@ -28,6 +29,7 @@ body {
   height: 100%; // new
   position: relative; // new
   padding: 40px 15px;
+  overflow-y: auto; // Moving scrollbar from body to .content-wrap per phone call 4/13 sfl
 }
 
 // Global Elements
