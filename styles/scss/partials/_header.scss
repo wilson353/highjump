@@ -81,6 +81,12 @@ header {
     }
   }
 
+  .thread-title {
+    float: left;
+    font-size: 2em;
+    line-height: $top-bar-height;
+  }
+
   .utilities a:hover,
   .utilities .open .dropdown-toggle,
   .account a:hover .name,
@@ -187,7 +193,6 @@ header {
   .app-bar {
     display: none;
   }
-
 }
 
 @media (max-width: $small) {
@@ -228,6 +233,11 @@ header {
         display: none;
       }
     }
+    
+    .thread-title{
+      line-height: $small-top-bar-height;
+    }
+
   }
 
 }
